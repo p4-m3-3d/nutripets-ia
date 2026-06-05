@@ -1,0 +1,2 @@
+class ToxicIngredient:
+    pass
