@@ -1,22 +1,82 @@
 [
-  {
-    "title": "Introducción gradual de alimentos",
-    "content": "Los cambios de alimentación deben realizarse progresivamente durante varios días para evitar trastornos digestivos."
-  },
-  {
-    "title": "Hidratación diaria",
-    "content": "Las mascotas deben disponer siempre de agua fresca y limpia."
-  },
-  {
-    "title": "Evitar exceso de premios",
-    "content": "Los premios deben representar una pequeña parte de la alimentación diaria."
-  },
-  {
-    "title": "Control de peso",
-    "content": "Mantener un peso saludable ayuda a prevenir enfermedades y problemas articulares."
-  },
-  {
-    "title": "Alimentación en cachorros",
-    "content": "Los cachorros requieren más energía y proteínas que los animales adultos."
-  }
+{
+"title": "Introducción gradual de alimentos",
+"content": "Los cambios de alimentación deben realizarse progresivamente durante varios días para evitar trastornos digestivos."
+},
+{
+"title": "Hidratación diaria",
+"content": "Las mascotas deben disponer siempre de agua fresca y limpia."
+},
+{
+"title": "Evitar exceso de premios",
+"content": "Los premios deben representar una pequeña parte de la alimentación diaria."
+},
+{
+"title": "Control de peso",
+"content": "Mantener un peso saludable ayuda a prevenir enfermedades y problemas articulares."
+},
+{
+"title": "Alimentación en cachorros",
+"content": "Los cachorros requieren más energía y proteínas que los animales adultos."
+},
+{
+"title": "Control veterinario periódico",
+"content": "Realizar revisiones veterinarias periódicas permite detectar problemas de salud de forma temprana."
+},
+{
+"title": "Evitar huesos cocidos",
+"content": "Los huesos cocidos pueden astillarse y causar lesiones internas."
+},
+{
+"title": "Actividad física diaria",
+"content": "Los perros necesitan ejercicio diario para mantener un peso saludable y reducir el estrés."
+},
+{
+"title": "Control de porciones",
+"content": "Las porciones deben ajustarse según el tamaño, edad y nivel de actividad de la mascota."
+},
+{
+"title": "Evitar alimentos ultraprocesados",
+"content": "Muchos productos procesados para humanos contienen ingredientes perjudiciales para mascotas."
+},
+{
+"title": "Higiene de comederos",
+"content": "Los recipientes de comida y agua deben limpiarse regularmente."
+},
+{
+"title": "Transición de dietas",
+"content": "Una nueva dieta debe introducirse gradualmente durante varios días."
+},
+{
+"title": "Observación del apetito",
+"content": "Cambios repentinos en el apetito pueden indicar problemas de salud."
+},
+{
+"title": "Control de snacks",
+"content": "Los snacks deben ofrecerse con moderación para evitar obesidad."
+},
+{
+"title": "Evitar exceso de sal",
+"content": "La sal en exceso puede afectar la salud cardiovascular de las mascotas."
+},
+{
+"title": "Evitar exceso de azúcar",
+"content": "El azúcar puede favorecer obesidad y otros problemas metabólicos."
+},
+{
+"title": "Alimentación para senior",
+"content": "Las mascotas mayores requieren dietas adaptadas a sus necesidades energéticas."
+},
+{
+"title": "Atención al pelaje",
+"content": "La calidad del pelaje puede reflejar el estado nutricional del animal."
+},
+{
+"title": "Evitar cambios bruscos",
+"content": "Los cambios repentinos de alimentación suelen causar trastornos digestivos."
+},
+{
+"title": "Consulta profesional",
+"content": "Ante dudas nutricionales siempre debe consultarse a un veterinario."
+}
 ]

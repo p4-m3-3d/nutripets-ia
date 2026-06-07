@@ -78,5 +78,85 @@
 "preparation_time": 25,
 "difficulty": "Fácil",
 "calories": 270
+},
+{
+"title": "Pollo con brócoli para perro adulto",
+"description": "Receta equilibrada rica en proteínas y fibra",
+"preparation": "Cocinar pollo y brócoli al vapor, luego mezclar",
+"preparation_time": 30,
+"difficulty": "Fácil",
+"calories": 290
+},
+{
+"title": "Pescado blanco con arroz",
+"description": "Receta ligera para perros con digestión sensible",
+"preparation": "Hervir pescado blanco y combinar con arroz cocido",
+"preparation_time": 25,
+"difficulty": "Fácil",
+"calories": 240
+},
+{
+"title": "Carne magra con calabaza",
+"description": "Receta energética para perros activos",
+"preparation": "Cocinar carne magra y mezclar con calabaza cocida",
+"preparation_time": 35,
+"difficulty": "Media",
+"calories": 330
+},
+{
+"title": "Pollo con avena",
+"description": "Alimentación suave para perros adultos",
+"preparation": "Hervir pollo y mezclar con avena cocida",
+"preparation_time": 25,
+"difficulty": "Fácil",
+"calories": 260
+},
+{
+"title": "Pavo con arroz integral",
+"description": "Receta balanceada para perros senior",
+"preparation": "Cocinar pavo y arroz integral hasta que estén suaves",
+"preparation_time": 35,
+"difficulty": "Media",
+"calories": 280
+},
+{
+"title": "Atún con zanahoria para gato",
+"description": "Receta rica en proteínas para gatos adultos",
+"preparation": "Mezclar atún cocido con zanahoria cocida",
+"preparation_time": 20,
+"difficulty": "Fácil",
+"calories": 190
+},
+{
+"title": "Pollo con espinaca",
+"description": "Receta nutritiva para perros",
+"preparation": "Cocinar pollo y espinaca, luego mezclar",
+"preparation_time": 30,
+"difficulty": "Fácil",
+"calories": 275
+},
+{
+"title": "Carne con huevo cocido",
+"description": "Receta rica en proteínas para perros activos",
+"preparation": "Cocinar carne y combinar con huevo cocido picado",
+"preparation_time": 30,
+"difficulty": "Media",
+"calories": 350
+},
+{
+"title": "Pescado con calabaza para gato senior",
+"description": "Receta suave para gatos mayores",
+"preparation": "Cocinar pescado y mezclar con calabaza",
+"preparation_time": 20,
+"difficulty": "Fácil",
+"calories": 200
+},
+{
+"title": "Pollo con zanahoria y arroz",
+"description": "Receta clásica para perros de todas las edades",
+"preparation": "Hervir todos los ingredientes y mezclar",
+"preparation_time": 35,
+"difficulty": "Fácil",
+"calories": 300
 }
 ]

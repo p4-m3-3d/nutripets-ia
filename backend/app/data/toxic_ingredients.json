@@ -1,32 +1,92 @@
 [
-  {
-    "name": "Chocolate",
-    "danger_level": "Alto",
-    "symptoms": "Vomitos, diarrea, hiperactividad y convulsiones",
-    "action_required": "Contactar inmediatamente con un veterinario"
-  },
-  {
-    "name": "Cebolla",
-    "danger_level": "Alto",
-    "symptoms": "Anemia, debilidad y falta de apetito",
-    "action_required": "Consultar al veterinario"
-  },
-  {
-    "name": "Ajo",
-    "danger_level": "Alto",
-    "symptoms": "Problemas gastrointestinales y anemia",
-    "action_required": "Consultar al veterinario"
-  },
-  {
-    "name": "Uvas",
-    "danger_level": "Alto",
-    "symptoms": "Vomitos y posible insuficiencia renal",
-    "action_required": "Atención veterinaria urgente"
-  },
-  {
-    "name": "Xilitol",
-    "danger_level": "Crítico",
-    "symptoms": "Hipoglucemia, convulsiones y daño hepático",
-    "action_required": "Emergencia veterinaria inmediata"
-  }
+{
+"name": "Chocolate",
+"danger_level": "Alto",
+"symptoms": "Vomitos, diarrea, hiperactividad y convulsiones",
+"action_required": "Contactar inmediatamente con un veterinario"
+},
+{
+"name": "Cebolla",
+"danger_level": "Alto",
+"symptoms": "Anemia, debilidad y falta de apetito",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Ajo",
+"danger_level": "Alto",
+"symptoms": "Problemas gastrointestinales y anemia",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Uvas",
+"danger_level": "Alto",
+"symptoms": "Vomitos y posible insuficiencia renal",
+"action_required": "Atención veterinaria urgente"
+},
+{
+"name": "Xilitol",
+"danger_level": "Crítico",
+"symptoms": "Hipoglucemia, convulsiones y daño hepático",
+"action_required": "Emergencia veterinaria inmediata"
+},
+{
+"name": "Cafeína",
+"danger_level": "Alto",
+"symptoms": "Taquicardia, hiperactividad y temblores",
+"action_required": "Atención veterinaria inmediata"
+},
+{
+"name": "Alcohol",
+"danger_level": "Crítico",
+"symptoms": "Desorientación, vómitos y depresión respiratoria",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Aguacate",
+"danger_level": "Moderado",
+"symptoms": "Problemas gastrointestinales",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Nuez de macadamia",
+"danger_level": "Alto",
+"symptoms": "Debilidad y temblores",
+"action_required": "Atención veterinaria"
+},
+{
+"name": "Masa cruda con levadura",
+"danger_level": "Alto",
+"symptoms": "Distensión abdominal y producción de alcohol",
+"action_required": "Urgencia veterinaria"
+},
+{
+"name": "Cebollín",
+"danger_level": "Alto",
+"symptoms": "Anemia y debilidad",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Té",
+"danger_level": "Alto",
+"symptoms": "Hiperactividad y taquicardia",
+"action_required": "Atención veterinaria"
+},
+{
+"name": "Pasas",
+"danger_level": "Alto",
+"symptoms": "Insuficiencia renal",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Tabaco",
+"danger_level": "Crítico",
+"symptoms": "Convulsiones y alteraciones cardíacas",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Medicamentos humanos",
+"danger_level": "Crítico",
+"symptoms": "Variables según el medicamento",
+"action_required": "Contactar inmediatamente con un veterinario"
+}
 ]

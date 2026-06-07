@@ -1,22 +1,42 @@
 [
-  {
-    "question": "¿Mi perro puede comer arroz?",
-    "answer": "Sí, el arroz cocido puede formar parte de una dieta equilibrada para perros."
-  },
-  {
-    "question": "¿Mi gato puede comer pescado todos los días?",
-    "answer": "No es recomendable basar toda la alimentación únicamente en pescado."
-  },
-  {
-    "question": "¿Qué alimentos son tóxicos?",
-    "answer": "Chocolate, cebolla, ajo, uvas y xilitol son algunos de los alimentos peligrosos."
-  },
-  {
-    "question": "¿Puede comer huevo?",
-    "answer": "Sí, el huevo cocido puede ser una fuente saludable de proteínas."
-  },
-  {
-    "question": "¿Puede comer yogur?",
-    "answer": "Algunos perros pueden consumir yogur natural sin azúcar en pequeñas cantidades."
-  }
+{
+"question": "¿Mi perro puede comer arroz?",
+"answer": "Sí, el arroz cocido puede formar parte de una dieta equilibrada para perros."
+},
+{
+"question": "¿Mi gato puede comer pescado todos los días?",
+"answer": "No es recomendable basar toda la alimentación únicamente en pescado."
+},
+{
+"question": "¿Qué alimentos son tóxicos?",
+"answer": "Chocolate, cebolla, ajo, uvas y xilitol son algunos de los alimentos peligrosos."
+},
+{
+"question": "¿Puede comer huevo?",
+"answer": "Sí, el huevo cocido puede ser una fuente saludable de proteínas."
+},
+{
+"question": "¿Puede comer yogur?",
+"answer": "Algunos perros pueden consumir yogur natural sin azúcar en pequeñas cantidades."
+},
+{
+"question": "¿Puede mi perro comer zanahoria?",
+"answer": "Sí, la zanahoria cocida o cruda en pequeñas cantidades suele ser segura."
+},
+{
+"question": "¿Puede mi gato beber leche?",
+"answer": "Muchos gatos adultos presentan intolerancia a la lactosa."
+},
+{
+"question": "¿Qué hacer si comió chocolate?",
+"answer": "Debe buscar atención veterinaria inmediata."
+},
+{
+"question": "¿Cuántas veces debe comer un cachorro?",
+"answer": "Generalmente entre tres y cuatro comidas diarias según recomendación veterinaria."
+},
+{
+"question": "¿Es normal que pierda apetito?",
+"answer": "La pérdida prolongada de apetito requiere evaluación veterinaria."
+}
 ]
