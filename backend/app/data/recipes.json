@@ -1,0 +1,82 @@
+[
+{
+"title": "Pollo con arroz digestivo",
+"description": "Receta suave para perros con digestión sensible",
+"preparation": "Hervir pollo y mezclar con arroz cocido",
+"preparation_time": 30,
+"difficulty": "Fácil",
+"calories": 250
+},
+{
+"title": "Pavo con calabaza",
+"description": "Receta digestiva para perros",
+"preparation": "Cocinar pavo y mezclar con calabaza cocida",
+"preparation_time": 25,
+"difficulty": "Fácil",
+"calories": 280
+},
+{
+"title": "Atún suave para gato adulto",
+"description": "Receta rica en proteínas para gatos",
+"preparation": "Mezclar atún con calabaza cocida",
+"preparation_time": 15,
+"difficulty": "Fácil",
+"calories": 180
+},
+{
+"title": "Carne con zanahoria para cachorro",
+"description": "Receta energética para cachorros",
+"preparation": "Cocinar carne molida y mezclar con zanahoria cocida",
+"preparation_time": 25,
+"difficulty": "Fácil",
+"calories": 320
+},
+{
+"title": "Pollo senior bajo en grasa",
+"description": "Receta ligera para perros mayores",
+"preparation": "Hervir pollo sin piel y acompañar con verduras",
+"preparation_time": 30,
+"difficulty": "Fácil",
+"calories": 220
+},
+{
+"title": "Huevo con avena",
+"description": "Desayuno nutritivo para perros",
+"preparation": "Cocinar huevo y mezclar con avena cocida",
+"preparation_time": 15,
+"difficulty": "Fácil",
+"calories": 240
+},
+{
+"title": "Arroz con pescado blanco",
+"description": "Receta suave para gatos",
+"preparation": "Cocinar pescado blanco y mezclar con arroz",
+"preparation_time": 20,
+"difficulty": "Fácil",
+"calories": 210
+},
+{
+"title": "Pollo con papa cocida",
+"description": "Comida completa para perros adultos",
+"preparation": "Hervir pollo y papa, luego mezclar",
+"preparation_time": 35,
+"difficulty": "Fácil",
+"calories": 310
+},
+{
+"title": "Carne con arroz integral",
+"description": "Receta rica en energía",
+"preparation": "Cocinar carne y arroz integral",
+"preparation_time": 40,
+"difficulty": "Media",
+"calories": 340
+},
+{
+"title": "Pavo con zanahoria",
+"description": "Alimentación equilibrada para perros",
+"preparation": "Cocinar pavo y zanahoria hasta que estén suaves",
+"preparation_time": 25,
+"difficulty": "Fácil",
+"calories": 270
+}
+]

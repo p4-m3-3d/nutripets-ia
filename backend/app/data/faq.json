@@ -1,0 +1,22 @@
+[
+  {
+    "question": "¿Mi perro puede comer arroz?",
+    "answer": "Sí, el arroz cocido puede formar parte de una dieta equilibrada para perros."
+  },
+  {
+    "question": "¿Mi gato puede comer pescado todos los días?",
+    "answer": "No es recomendable basar toda la alimentación únicamente en pescado."
+  },
+  {
+    "question": "¿Qué alimentos son tóxicos?",
+    "answer": "Chocolate, cebolla, ajo, uvas y xilitol son algunos de los alimentos peligrosos."
+  },
+  {
+    "question": "¿Puede comer huevo?",
+    "answer": "Sí, el huevo cocido puede ser una fuente saludable de proteínas."
+  },
+  {
+    "question": "¿Puede comer yogur?",
+    "answer": "Algunos perros pueden consumir yogur natural sin azúcar en pequeñas cantidades."
+  }
+]

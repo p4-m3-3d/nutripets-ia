@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Chocolate",
+    "danger_level": "Alto",
+    "symptoms": "Vomitos, diarrea, hiperactividad y convulsiones",
+    "action_required": "Contactar inmediatamente con un veterinario"
+  },
+  {
+    "name": "Cebolla",
+    "danger_level": "Alto",
+    "symptoms": "Anemia, debilidad y falta de apetito",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Ajo",
+    "danger_level": "Alto",
+    "symptoms": "Problemas gastrointestinales y anemia",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Uvas",
+    "danger_level": "Alto",
+    "symptoms": "Vomitos y posible insuficiencia renal",
+    "action_required": "Atención veterinaria urgente"
+  },
+  {
+    "name": "Xilitol",
+    "danger_level": "Crítico",
+    "symptoms": "Hipoglucemia, convulsiones y daño hepático",
+    "action_required": "Emergencia veterinaria inmediata"
+  }
+]
