@@ -41,7 +41,11 @@ class VectorLoader:
                 documents=[text],
                 embeddings=[
                     create_embedding(text)
-                ]
+                ],
+                metadatas=[{
+                    "type": "recipe",
+                    "title": recipe.title
+                }]
             )
 
         advice_list = db.query(Advice).all()
@@ -56,11 +60,15 @@ class VectorLoader:
             """
 
             collection.add(
-                ids=[f"advice_{advice.id}"],
+                ids=[f"advice_{advice.id}"], 
                 documents=[text],
                 embeddings=[
                     create_embedding(text)
-                ]
+                ],
+                metadatas=[{
+                    "type": "advice",
+                    "title": advice.title
+                }]
             )
 
         faq_list = db.query(FAQ).all()
@@ -80,7 +88,11 @@ class VectorLoader:
                 documents=[text],
                 embeddings=[
                     create_embedding(text)
-                ]
+                ],
+                metadatas=[{
+                    "type": "faq",
+                    "question": faq.question
+                }]
             )
 
         toxic_list = db.query(
@@ -105,7 +117,11 @@ class VectorLoader:
                 documents=[text],
                 embeddings=[
                     create_embedding(text)
-                ]
+                ],
+                metadatas=[{
+                    "type": "toxic",
+                    "name": toxic.name
+                }]
             )
 
         db.close()

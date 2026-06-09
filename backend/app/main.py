@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.routers.ai_router import router as ai_router
 
 from app.routers.recipe_router import (
     router as recipe_router
@@ -29,6 +30,7 @@ app.include_router(advice_router)
 app.include_router(faq_router)
 app.include_router(toxic_ingredient_router)
 app.include_router(data_loader_router)
+app.include_router(ai_router)
 
 @app.get("/")
 def inicio():
