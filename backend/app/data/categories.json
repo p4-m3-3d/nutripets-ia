@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "category_name": "Digestiva"
+    },
+    {
+        "id": 2,
+        "category_name": "Senior"
+    },
+    {
+        "id": 3,
+        "category_name": "Alta Proteina"
+    },
+    {
+        "id": 4,
+        "category_name": "Energetica"
+    },
+    {
+        "id": 5,
+        "category_name": "Balanceada"
+    }
+]

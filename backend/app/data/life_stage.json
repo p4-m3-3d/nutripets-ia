@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "stage_name": "Cachorro"
+    },
+    {
+        "id": 2,
+        "stage_name": "Adulto"
+    },
+    {
+        "id": 3,
+        "stage_name": "Senior"
+    }
+]

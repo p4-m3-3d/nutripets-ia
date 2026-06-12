@@ -16,8 +16,13 @@ from app.routers.faq_router import (
 from app.routers.toxic_ingredient_router import (
     router as toxic_ingredient_router
 )
+
 from app.routers.data_loader_router import (
     router as data_loader_router
+)
+
+from app.routers.vector_router import (
+    router as vector_router
 )
 
 app = FastAPI(
@@ -31,6 +36,7 @@ app.include_router(faq_router)
 app.include_router(toxic_ingredient_router)
 app.include_router(data_loader_router)
 app.include_router(ai_router)
+app.include_router(vector_router)
 
 @app.get("/")
 def inicio():

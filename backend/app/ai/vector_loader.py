@@ -35,7 +35,7 @@ class VectorLoader:
 
             {recipe.description}
             """
-
+            
             collection.add(
                 ids=[f"recipe_{recipe.id}"],
                 documents=[text],
@@ -44,7 +44,10 @@ class VectorLoader:
                 ],
                 metadatas=[{
                     "type": "recipe",
-                    "title": recipe.title
+                    "title": recipe.title,
+                    "species_id": recipe.species_id,
+                    "life_stage_id": recipe.life_stage_id,
+                    "category_id": recipe.category_id
                 }]
             )
 
