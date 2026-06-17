@@ -3,17 +3,32 @@ from app.ai.embedding_service import create_embedding
 from app.ai.llm_service import LLMService
 from app.ai.toxic_detector import ToxicDetector
 
-class RagService:
+SPECIES = {
+    1: "Perro",
+    2: "Gato"
+}
 
+LIFE_STAGES = {
+    1: "Cachorro",
+    2: "Adulto",
+    3: "Senior"
+}
+
+CATEGORIES = {
+    1: "General",
+    2: "Digestiva",
+    3: "Energética"
+}
+
+
+class RagService:
 
     @staticmethod
     def ask(question: str):
-        toxic_result = ToxicDetector.detect(
-            question
-            )
+
+        toxic_result = ToxicDetector.detect(question)
 
         if toxic_result["found"]:
-
             return {
                 "question": question,
                 "alert": True,
@@ -41,13 +56,39 @@ class RagService:
         )
 
         recommendations = []
+        unique_titles = set()
 
         for metadata in metadatas:
 
             if metadata is None:
                 continue
 
-            recommendations.append(metadata)
+            if metadata.get("type") != "recipe":
+                continue
+
+            title = metadata.get("title")
+
+            if not title:
+                continue
+
+            if title in unique_titles:
+                continue
+
+            unique_titles.add(title)
+
+            recommendations.append({
+                "title": title,
+                "type": metadata.get("type"),
+                "species": SPECIES.get(
+                    metadata.get("species_id")
+                ),
+                "life_stage": LIFE_STAGES.get(
+                    metadata.get("life_stage_id")
+                ),
+                "category": CATEGORIES.get(
+                    metadata.get("category_id")
+                )
+            })
 
         return {
             "question": question,

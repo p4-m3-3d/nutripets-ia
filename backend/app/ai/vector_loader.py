@@ -128,6 +128,15 @@ class VectorLoader:
             )
 
         db.close()
+        print("RECETAS:", len(recipes))
+        for recipe in recipes:
+            print(
+                recipe.id,
+                recipe.title,
+                recipe.species_id,
+                recipe.life_stage_id,
+                recipe.category_id
+            )
 
         return {
             "message": "Base vectorial creada"
