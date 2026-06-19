@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriPets IA</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --border: #dde3f0;
+      --text: #16324f;
+      --muted: #5b6f89;
+      --primary: #1e88e5;
+      --primary-dark: #1565c0;
+      --success: #2e7d32;
+      --danger: #c62828;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #eef6ff 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+    }
+
+    textarea, input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      outline: none;
+      resize: vertical;
+      min-height: 110px;
+      color: var(--text);
+    }
+
+    textarea:focus, input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    button {
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    button:hover { background: var(--primary-dark); }
+
+    button.secondary {
+      background: #e3f2fd;
+      color: var(--primary-dark);
+    }
+
+    button.secondary:hover { background: #d0e7fb; }
+
+    .status {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 14px;
+      overflow: auto;
+      max-height: 520px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>NutriPets IA</h1>
+        <p style="margin: 6px 0 0; color: var(--muted);">Asistente de nutrición para mascotas</p>
+      </div>
+      <div class="pill">API Base: <strong id="apiBaseLabel">http://127.0.0.1:8000</strong></div>
+    </header>
+
+    <div class="grid">
+      <section class="panel">
+        <h2>Pregunta al asistente</h2>
+        <textarea id="questionInput" placeholder="Ejemplo: ¿qué alimento puedo dar a un perro con diarrea?"></textarea>
+        <div class="actions">
+          <button id="askBtn">Consultar IA</button>
+          <button class="secondary" id="searchBtn">Buscar semántico</button>
+        </div>
+        <div class="status" id="statusText"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Herramientas</h2>
+        <div class="actions">
+          <button class="secondary" id="healthBtn">Verificar API</button>
+          <button class="secondary" id="loadBtn">Cargar datos</button>
+          <button class="secondary" id="indexBtn">Indexar vector</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" style="margin-top: 18px;">
+      <h2>Respuesta</h2>
+      <pre id="output">Esperando una consulta...</pre>
+    </section>
+  </div>
+
+  <script>
+    const API_BASE = 'http://127.0.0.1:8000';
+    const output = document.getElementById('output');
+    const statusText = document.getElementById('statusText');
+    const questionInput = document.getElementById('questionInput');
+    const apiBaseLabel = document.getElementById('apiBaseLabel');
+
+    apiBaseLabel.textContent = API_BASE;
+
+    function setStatus(message, isError = false) {
+      statusText.textContent = message;
+      statusText.style.color = isError ? '#c62828' : '#5b6f89';
+    }
+
+    async function requestJson(path, options = {}) {
+      const response = await fetch(`${API_BASE}${path}`, {
+        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
+        ...options
+      });
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        throw new Error(data?.detail || `Error ${response.status}`);
+      }
+      return data;
+    }
+
+    async function handleAsk() {
+      const question = questionInput.value.trim();
+      if (!question) {
+        setStatus('Escribe una pregunta primero.', true);
+        return;
+      }
+
+      setStatus('Consultando al asistente...');
+      try {
+        const data = await requestJson('/ai/ask', {
+          method: 'POST',
+          body: JSON.stringify({ question })
+        });
+        output.textContent = JSON.stringify(data, null, 2);
+        setStatus('Consulta completada correctamente.');
+      } catch (error) {
+        output.textContent = error.message;
+        setStatus('No se pudo completar la consulta.', true);
+      }
+    }
+
+    async function handleSearch() {
+      const query = questionInput.value.trim();
+      if (!query) {
+        setStatus('Escribe una búsqueda primero.', true);
+        return;
+      }
+
+      setStatus('Buscando contenido relevante...');
+      try {
+        const data = await requestJson('/ai/search', {
+          method: 'POST',
+          body: JSON.stringify({ query })
+        });
+        output.textContent = JSON.stringify(data, null, 2);
+        setStatus('Búsqueda semántica finalizada.');
+      } catch (error) {
+        output.textContent = error.message;
+        setStatus('No se pudo ejecutar la búsqueda.', true);
+      }
+    }
+
+    async function handleHealth() {
+      try {
+        const data = await requestJson('/health');
+        output.textContent = JSON.stringify(data, null, 2);
+        setStatus('La API está disponible.');
+      } catch (error) {
+        output.textContent = error.message;
+        setStatus('La API no responde.', true);
+      }
+    }
+
+    async function handleLoad() {
+      setStatus('Cargando datos iniciales...');
+      try {
+        const data = await requestJson('/loader/all', { method: 'POST' });
+        output.textContent = JSON.stringify(data, null, 2);
+        setStatus('Datos cargados correctamente.');
+      } catch (error) {
+        output.textContent = error.message;
+        setStatus('No se pudieron cargar los datos.', true);
+      }
+    }
+
+    async function handleIndex() {
+      setStatus('Creando índice vectorial...');
+      try {
+        const data = await requestJson('/ai/index', { method: 'POST' });
+        output.textContent = JSON.stringify(data, null, 2);
+        setStatus('Índice vectorial creado.');
+      } catch (error) {
+        output.textContent = error.message;
+        setStatus('No se pudo crear el índice.', true);
+      }
+    }
+
+    document.getElementById('askBtn').addEventListener('click', handleAsk);
+    document.getElementById('searchBtn').addEventListener('click', handleSearch);
+    document.getElementById('healthBtn').addEventListener('click', handleHealth);
+    document.getElementById('loadBtn').addEventListener('click', handleLoad);
+    document.getElementById('indexBtn').addEventListener('click', handleIndex);
+  </script>
+</body>
+</html>

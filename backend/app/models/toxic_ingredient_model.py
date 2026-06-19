@@ -7,14 +7,36 @@ from app.core.database import Base
 
 
 class ToxicIngredient(Base):
+
     __tablename__ = "toxic_ingredients"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
 
-    name = Column(String(100), nullable=False)
+    name = Column(
+        String(100),
+        nullable=False
+    )
 
-    danger_level = Column(String(50), nullable=False)
+    aliases = Column(
+        Text,
+        nullable=True
+    )
 
-    symptoms = Column(Text, nullable=False)
+    danger_level = Column(
+        String(50),
+        nullable=False
+    )
 
-    action_required = Column(Text, nullable=False)
+    symptoms = Column(
+        Text,
+        nullable=False
+    )
+
+    action_required = Column(
+        Text,
+        nullable=False
+    )

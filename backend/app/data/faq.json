@@ -1,42 +1,122 @@
 [
-{
-"question": "¿Mi perro puede comer arroz?",
-"answer": "Sí, el arroz cocido puede formar parte de una dieta equilibrada para perros."
-},
-{
-"question": "¿Mi gato puede comer pescado todos los días?",
-"answer": "No es recomendable basar toda la alimentación únicamente en pescado."
-},
-{
-"question": "¿Qué alimentos son tóxicos?",
-"answer": "Chocolate, cebolla, ajo, uvas y xilitol son algunos de los alimentos peligrosos."
-},
-{
-"question": "¿Puede comer huevo?",
-"answer": "Sí, el huevo cocido puede ser una fuente saludable de proteínas."
-},
-{
-"question": "¿Puede comer yogur?",
-"answer": "Algunos perros pueden consumir yogur natural sin azúcar en pequeñas cantidades."
-},
-{
-"question": "¿Puede mi perro comer zanahoria?",
-"answer": "Sí, la zanahoria cocida o cruda en pequeñas cantidades suele ser segura."
-},
-{
-"question": "¿Puede mi gato beber leche?",
-"answer": "Muchos gatos adultos presentan intolerancia a la lactosa."
-},
-{
-"question": "¿Qué hacer si comió chocolate?",
-"answer": "Debe buscar atención veterinaria inmediata."
-},
-{
-"question": "¿Cuántas veces debe comer un cachorro?",
-"answer": "Generalmente entre tres y cuatro comidas diarias según recomendación veterinaria."
-},
-{
-"question": "¿Es normal que pierda apetito?",
-"answer": "La pérdida prolongada de apetito requiere evaluación veterinaria."
-}
+  {
+    "question": "¿Puedo dar arroz a mi perro?",
+    "answer": "Sí, el arroz cocido es una fuente de carbohidratos fácil de digerir para muchos perros."
+  },
+  {
+    "question": "¿Puedo dar pollo a mi gato?",
+    "answer": "Sí, el pollo cocido sin condimentos es una buena fuente de proteína para los gatos."
+  },
+  {
+    "question": "¿Cuántas veces debe comer un cachorro?",
+    "answer": "Los cachorros suelen necesitar entre tres y cuatro comidas al día dependiendo de su edad."
+  },
+  {
+    "question": "¿Cuántas veces debe comer un perro adulto?",
+    "answer": "La mayoría de los perros adultos comen una o dos veces al día."
+  },
+  {
+    "question": "¿Cuántas veces debe comer un gato adulto?",
+    "answer": "Los gatos adultos suelen beneficiarse de varias comidas pequeñas distribuidas durante el día."
+  },
+  {
+    "question": "¿Los perros pueden comer zanahoria?",
+    "answer": "Sí, la zanahoria cocida o cruda en cantidades moderadas puede ser un snack saludable."
+  },
+  {
+    "question": "¿Los gatos pueden comer zanahoria?",
+    "answer": "Sí, los gatos pueden consumir pequeñas cantidades de zanahoria cocida."
+  },
+  {
+    "question": "¿La avena es segura para los perros?",
+    "answer": "Sí, la avena cocida puede ser una buena fuente de fibra para los perros."
+  },
+  {
+    "question": "¿El pescado es bueno para los gatos?",
+    "answer": "Sí, el pescado cocido aporta proteínas y ácidos grasos beneficiosos para los gatos."
+  },
+  {
+    "question": "¿Qué hago si mi perro vomita después de comer?",
+    "answer": "Si el vómito persiste o se acompaña de otros síntomas, se debe consultar a un veterinario."
+  },
+  {
+    "question": "¿Qué hago si mi gato no quiere comer?",
+    "answer": "La pérdida de apetito puede indicar un problema de salud y debe ser evaluada por un veterinario."
+  },
+  {
+    "question": "¿Los perros pueden comer huevo?",
+    "answer": "Sí, el huevo cocido es una excelente fuente de proteínas para los perros."
+  },
+  {
+    "question": "¿Los gatos pueden comer huevo?",
+    "answer": "Sí, el huevo cocido puede ofrecerse ocasionalmente como fuente de proteína."
+  },
+  {
+    "question": "¿Cómo cambiar el alimento de mi mascota?",
+    "answer": "La transición debe realizarse gradualmente durante varios días mezclando ambos alimentos."
+  },
+  {
+    "question": "¿Mi mascota necesita agua todo el día?",
+    "answer": "Sí, las mascotas deben tener acceso permanente a agua limpia y fresca."
+  },
+  {
+    "question": "¿Qué alimentos ayudan a la digestión?",
+    "answer": "Recetas suaves con arroz, pollo o pescado blanco suelen ser más fáciles de digerir."
+  },
+  {
+    "question": "¿Qué alimentos son peligrosos para los perros?",
+    "answer": "Chocolate, cebolla, ajo, uvas y xilitol son algunos de los alimentos peligrosos."
+  },
+  {
+    "question": "¿Qué alimentos son peligrosos para los gatos?",
+    "answer": "Chocolate, cebolla, ajo y ciertos medicamentos humanos pueden ser tóxicos."
+  },
+  {
+    "question": "¿Cómo sé si mi mascota tiene sobrepeso?",
+    "answer": "El aumento excesivo de peso y la dificultad para realizar actividad física pueden ser señales de sobrepeso."
+  },
+  {
+    "question": "¿Qué dieta necesita un perro senior?",
+    "answer": "Los perros senior suelen beneficiarse de dietas ligeras, digestivas y moderadas en calorías."
+  },
+  {
+    "question": "¿Qué dieta necesita un gato senior?",
+    "answer": "Los gatos senior suelen requerir alimentos fáciles de digerir y ricos en proteínas de calidad."
+  },
+  {
+    "question": "¿Puedo dar comida casera todos los días?",
+    "answer": "Sí, siempre que la dieta sea equilibrada y cubra los requerimientos nutricionales de la mascota."
+  },
+  {
+    "question": "¿Es normal que mi perro coma hierba?",
+    "answer": "Algunos perros comen hierba ocasionalmente, pero si es frecuente debe consultarse al veterinario."
+  },
+  {
+    "question": "¿Qué hago si mi perro tiene diarrea?",
+    "answer": "Se recomienda ofrecer alimentos suaves y consultar al veterinario si los síntomas persisten."
+  },
+  {
+    "question": "¿Qué hago si mi gato tiene diarrea?",
+    "answer": "La diarrea persistente requiere evaluación veterinaria para identificar la causa."
+  },
+  {
+    "question": "¿Cuándo debo llevar a mi mascota al veterinario?",
+    "answer": "Ante síntomas persistentes, pérdida de apetito, vómitos frecuentes o cambios de comportamiento."
+  },
+  {
+    "question": "¿Los premios son saludables?",
+    "answer": "Sí, siempre que se ofrezcan con moderación y formen una pequeña parte de la dieta diaria."
+  },
+  {
+    "question": "¿Puedo dar pescado todos los días a mi gato?",
+    "answer": "No se recomienda basar toda la dieta en pescado; debe existir variedad de fuentes proteicas."
+  },
+  {
+    "question": "¿La calabaza ayuda a la digestión?",
+    "answer": "Sí, la calabaza cocida aporta fibra y puede ayudar en algunos problemas digestivos."
+  },
+  {
+    "question": "¿Qué hacer si mi mascota comió chocolate?",
+    "answer": "Debe buscarse atención veterinaria inmediata, ya que el chocolate puede ser tóxico."
+  }
 ]

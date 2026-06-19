@@ -1,11 +1,13 @@
-from dotenv import load_dotenv
 import os
+from pathlib import Path
 
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-load_dotenv()
+BACKEND_ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(BACKEND_ROOT / ".env")
 
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
@@ -20,7 +22,8 @@ DATABASE_URL = (
 
 engine = create_engine(
     DATABASE_URL,
-    echo=True
+    echo=True,
+    pool_pre_ping=True
 )
 
 SessionLocal = sessionmaker(

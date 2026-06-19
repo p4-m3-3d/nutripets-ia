@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from sqlalchemy.orm import Session
 
@@ -11,6 +12,9 @@ from app.models.recipe_model import Recipe
 from app.models.catalog_models import Species
 from app.models.catalog_models import LifeStage
 from app.models.catalog_models import Category
+
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+
 
 class DataLoader:
 
@@ -25,7 +29,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/advice.json",
+                DATA_DIR / "advice.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -61,7 +65,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/faq.json",
+                DATA_DIR / "faq.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -97,7 +101,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/toxic_ingredients.json",
+                DATA_DIR / "toxic_ingredients.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -108,6 +112,9 @@ class DataLoader:
 
                 ingredient = ToxicIngredient(
                     name=item["name"],
+                    aliases=",".join(
+                        item.get("aliases", [])
+                    ),
                     danger_level=item["danger_level"],
                     symptoms=item["symptoms"],
                     action_required=item["action_required"]
@@ -135,7 +142,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/recipes.json",
+                DATA_DIR / "recipes.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -178,7 +185,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/species.json",
+                DATA_DIR / "species.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -214,7 +221,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/life_stage.json",
+                DATA_DIR / "life_stage.json",
                 "r",
                 encoding="utf-8"
             ) as file:
@@ -250,7 +257,7 @@ class DataLoader:
             db.commit()
 
             with open(
-                "app/data/categories.json",
+                DATA_DIR / "categories.json",
                 "r",
                 encoding="utf-8"
             ) as file:

@@ -1,82 +1,102 @@
 [
-{
-"title": "Introducción gradual de alimentos",
-"content": "Los cambios de alimentación deben realizarse progresivamente durante varios días para evitar trastornos digestivos."
-},
-{
-"title": "Hidratación diaria",
-"content": "Las mascotas deben disponer siempre de agua fresca y limpia."
-},
-{
-"title": "Evitar exceso de premios",
-"content": "Los premios deben representar una pequeña parte de la alimentación diaria."
-},
-{
-"title": "Control de peso",
-"content": "Mantener un peso saludable ayuda a prevenir enfermedades y problemas articulares."
-},
-{
-"title": "Alimentación en cachorros",
-"content": "Los cachorros requieren más energía y proteínas que los animales adultos."
-},
-{
-"title": "Control veterinario periódico",
-"content": "Realizar revisiones veterinarias periódicas permite detectar problemas de salud de forma temprana."
-},
-{
-"title": "Evitar huesos cocidos",
-"content": "Los huesos cocidos pueden astillarse y causar lesiones internas."
-},
-{
-"title": "Actividad física diaria",
-"content": "Los perros necesitan ejercicio diario para mantener un peso saludable y reducir el estrés."
-},
-{
-"title": "Control de porciones",
-"content": "Las porciones deben ajustarse según el tamaño, edad y nivel de actividad de la mascota."
-},
-{
-"title": "Evitar alimentos ultraprocesados",
-"content": "Muchos productos procesados para humanos contienen ingredientes perjudiciales para mascotas."
-},
-{
-"title": "Higiene de comederos",
-"content": "Los recipientes de comida y agua deben limpiarse regularmente."
-},
-{
-"title": "Transición de dietas",
-"content": "Una nueva dieta debe introducirse gradualmente durante varios días."
-},
-{
-"title": "Observación del apetito",
-"content": "Cambios repentinos en el apetito pueden indicar problemas de salud."
-},
-{
-"title": "Control de snacks",
-"content": "Los snacks deben ofrecerse con moderación para evitar obesidad."
-},
-{
-"title": "Evitar exceso de sal",
-"content": "La sal en exceso puede afectar la salud cardiovascular de las mascotas."
-},
-{
-"title": "Evitar exceso de azúcar",
-"content": "El azúcar puede favorecer obesidad y otros problemas metabólicos."
-},
-{
-"title": "Alimentación para senior",
-"content": "Las mascotas mayores requieren dietas adaptadas a sus necesidades energéticas."
-},
-{
-"title": "Atención al pelaje",
-"content": "La calidad del pelaje puede reflejar el estado nutricional del animal."
-},
-{
-"title": "Evitar cambios bruscos",
-"content": "Los cambios repentinos de alimentación suelen causar trastornos digestivos."
-},
-{
-"title": "Consulta profesional",
-"content": "Ante dudas nutricionales siempre debe consultarse a un veterinario."
-}
+  {
+    "title": "Introducción gradual de alimentos",
+    "content": "Los cambios de alimentación deben realizarse progresivamente durante varios días para evitar trastornos digestivos."
+  },
+  {
+    "title": "Mantener agua fresca disponible",
+    "content": "Las mascotas deben tener acceso permanente a agua limpia y fresca para evitar la deshidratación."
+  },
+  {
+    "title": "Control de porciones",
+    "content": "La cantidad de alimento debe ajustarse según la edad, peso y nivel de actividad de la mascota."
+  },
+  {
+    "title": "Evitar sobrealimentación",
+    "content": "El exceso de comida puede provocar obesidad y problemas articulares a largo plazo."
+  },
+  {
+    "title": "Alimentación para cachorros",
+    "content": "Los cachorros necesitan más proteínas y energía para un crecimiento saludable."
+  },
+  {
+    "title": "Alimentación para mascotas senior",
+    "content": "Las mascotas mayores suelen requerir dietas más ligeras y fáciles de digerir."
+  },
+  {
+    "title": "Importancia de la proteína",
+    "content": "Las proteínas ayudan al mantenimiento muscular y al correcto funcionamiento del organismo."
+  },
+  {
+    "title": "Importancia de la fibra",
+    "content": "La fibra favorece la digestión y ayuda a mantener un tránsito intestinal saludable."
+  },
+  {
+    "title": "Ejercicio diario",
+    "content": "La actividad física regular ayuda a controlar el peso y mejorar la salud general."
+  },
+  {
+    "title": "Evitar alimentos tóxicos",
+    "content": "Nunca se deben ofrecer alimentos como chocolate, cebolla, ajo o uvas."
+  },
+  {
+    "title": "Premios saludables",
+    "content": "Los premios deben ofrecerse con moderación y preferiblemente ser bajos en grasa."
+  },
+  {
+    "title": "Control veterinario periódico",
+    "content": "Las revisiones periódicas ayudan a detectar problemas nutricionales o enfermedades de forma temprana."
+  },
+  {
+    "title": "Alimentación después de enfermedad",
+    "content": "Tras una enfermedad es recomendable ofrecer alimentos suaves y fáciles de digerir."
+  },
+  {
+    "title": "Evitar cambios bruscos",
+    "content": "Los cambios repentinos de dieta pueden provocar diarrea, vómitos o rechazo del alimento."
+  },
+  {
+    "title": "Observación de alergias",
+    "content": "Si aparecen picazón, vómitos o diarrea tras un alimento nuevo, consulte al veterinario."
+  },
+  {
+    "title": "Frecuencia de alimentación en perros",
+    "content": "Los perros adultos suelen alimentarse una o dos veces al día según sus necesidades."
+  },
+  {
+    "title": "Frecuencia de alimentación en gatos",
+    "content": "Los gatos suelen beneficiarse de varias comidas pequeñas distribuidas durante el día."
+  },
+  {
+    "title": "Mantener peso saludable",
+    "content": "El control del peso reduce el riesgo de enfermedades metabólicas y articulares."
+  },
+  {
+    "title": "Digestión sensible",
+    "content": "Las mascotas con digestión sensible suelen beneficiarse de recetas simples y bajas en grasa."
+  },
+  {
+    "title": "Alimentos ricos en energía",
+    "content": "Las mascotas activas pueden requerir dietas con mayor aporte calórico."
+  },
+  {
+    "title": "Importancia del descanso",
+    "content": "El descanso adecuado complementa una buena alimentación y favorece la recuperación física."
+  },
+  {
+    "title": "Control de snacks",
+    "content": "Los snacks no deben superar el diez por ciento de la ingesta diaria total."
+  },
+  {
+    "title": "Monitorear apetito",
+    "content": "Una pérdida repentina de apetito puede indicar problemas de salud y requiere atención."
+  },
+  {
+    "title": "Higiene de los recipientes",
+    "content": "Los recipientes de comida y agua deben limpiarse regularmente para evitar contaminación."
+  },
+  {
+    "title": "Consultar ante síntomas persistentes",
+    "content": "Si los síntomas digestivos duran más de 24 horas se recomienda acudir al veterinario."
+  }
 ]
