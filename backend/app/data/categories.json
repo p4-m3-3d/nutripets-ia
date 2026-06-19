@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "category_name": "Digestiva"
+    },
+    {
+        "id": 2,
+        "category_name": "Senior"
+    },
+    {
+        "id": 3,
+        "category_name": "Alta Proteina"
+    },
+    {
+        "id": 4,
+        "category_name": "Energetica"
+    },
+    {
+        "id": 5,
+        "category_name": "Balanceada"
+    },
+    {
+        "id": 6,
+        "category_name": "Renal"
+    },
+    {
+        "id": 7,
+        "category_name": "Control de Peso"
+    },
+    {
+        "id": 8,
+        "category_name": "Hipoalergénica"
+    },
+    {
+        "id": 9,
+        "category_name": "Snacks y Premios"
+    }
+]

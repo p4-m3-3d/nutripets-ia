@@ -1,0 +1,266 @@
+[
+{
+"name": "Chocolate",
+"danger_level": "Alto",
+"symptoms": "Vomitos, diarrea, hiperactividad y convulsiones",
+"action_required": "Contactar inmediatamente con un veterinario"
+},
+{
+"name": "Cebolla",
+"danger_level": "Alto",
+"symptoms": "Anemia, debilidad y falta de apetito",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Ajo",
+"danger_level": "Alto",
+"symptoms": "Problemas gastrointestinales y anemia",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Uvas",
+"danger_level": "Alto",
+"symptoms": "Vomitos y posible insuficiencia renal",
+"action_required": "Atención veterinaria urgente"
+},
+{
+"name": "Xilitol",
+"danger_level": "Crítico",
+"symptoms": "Hipoglucemia, convulsiones y daño hepático",
+"action_required": "Emergencia veterinaria inmediata"
+},
+{
+"name": "Cafeína",
+"danger_level": "Alto",
+"symptoms": "Taquicardia, hiperactividad y temblores",
+"action_required": "Atención veterinaria inmediata"
+},
+{
+"name": "Alcohol",
+"danger_level": "Crítico",
+"symptoms": "Desorientación, vómitos y depresión respiratoria",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Aguacate",
+"danger_level": "Moderado",
+"symptoms": "Problemas gastrointestinales",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Nuez de macadamia",
+"danger_level": "Alto",
+"symptoms": "Debilidad y temblores",
+"action_required": "Atención veterinaria"
+},
+{
+"name": "Masa cruda con levadura",
+"danger_level": "Alto",
+"symptoms": "Distensión abdominal y producción de alcohol",
+"action_required": "Urgencia veterinaria"
+},
+{
+"name": "Cebollín",
+"danger_level": "Alto",
+"symptoms": "Anemia y debilidad",
+"action_required": "Consultar al veterinario"
+},
+{
+"name": "Té",
+"danger_level": "Alto",
+"symptoms": "Hiperactividad y taquicardia",
+"action_required": "Atención veterinaria"
+},
+{
+"name": "Pasas",
+"danger_level": "Alto",
+"symptoms": "Insuficiencia renal",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Tabaco",
+"danger_level": "Crítico",
+"symptoms": "Convulsiones y alteraciones cardíacas",
+"action_required": "Emergencia veterinaria"
+},
+{
+"name": "Medicamentos humanos",
+"danger_level": "Crítico",
+"symptoms": "Variables según el medicamento",
+"action_required": "Contactar inmediatamente con un veterinario"
+},
+{
+"name": "Paracetamol",
+"danger_level": "Crítico",
+"symptoms": "Daño hepático, dificultad respiratoria y debilidad",
+"action_required": "Emergencia veterinaria inmediata"
+},
+{
+"name": "Ibuprofeno",
+"danger_level": "Crítico",
+"symptoms": "Úlceras, vómitos y daño renal",
+"action_required": "Atención veterinaria urgente"
+},
+{
+"name": "Aspirina",
+"danger_level": "Alto",
+"symptoms": "Vómitos, sangrado gastrointestinal y letargo",
+"action_required": "Consultar inmediatamente con un veterinario"
+},
+{
+"name": "Cannabis",
+"danger_level": "Alto",
+"symptoms": "Desorientación, temblores y somnolencia",
+"action_required": "Atención veterinaria inmediata"
+},
+{
+"name": "Nicotina",
+"danger_level": "Crítico",
+"symptoms": "Convulsiones, taquicardia y colapso",
+"action_required": "Emergencia veterinaria"
+},
+{
+  "name": "Bebidas energéticas",
+  "aliases": [
+    "bebida energética",
+    "energizante",
+    "red bull",
+    "monster"
+  ],
+  "danger_level": "Alto",
+  "symptoms": "Hiperactividad, temblores y taquicardia",
+  "action_required": "Atención veterinaria"
+},
+  {
+    "name": "Refrescos con cafeína",
+    "danger_level": "Alto",
+    "symptoms": "Temblores, nerviosismo y alteraciones cardíacas",
+    "action_required": "Atención veterinaria"
+  },
+  {
+    "name": "Cereza",
+    "danger_level": "Moderado",
+    "symptoms": "Problemas digestivos y riesgo por semillas",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Durazno",
+    "danger_level": "Moderado",
+    "symptoms": "Problemas digestivos y riesgo por huesos",
+    "action_required": "Supervisar y consultar si aparecen síntomas"
+  },
+  {
+    "name": "Ciruela",
+    "danger_level": "Moderado",
+    "symptoms": "Dolor abdominal y vómitos",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Almendra amarga",
+    "danger_level": "Alto",
+    "symptoms": "Dificultad respiratoria y debilidad",
+    "action_required": "Atención veterinaria"
+  },
+  {
+    "name": "Nuez",
+    "danger_level": "Moderado",
+    "symptoms": "Problemas digestivos y letargo",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Hongos silvestres",
+    "danger_level": "Crítico",
+    "symptoms": "Daño hepático, convulsiones y vómitos",
+    "action_required": "Emergencia veterinaria inmediata"
+  },
+  {
+    "name": "Masa de pizza cruda",
+    "danger_level": "Alto",
+    "symptoms": "Distensión abdominal y producción de alcohol",
+    "action_required": "Urgencia veterinaria"
+  },
+  {
+    "name": "Levadura cruda",
+    "danger_level": "Alto",
+    "symptoms": "Dolor abdominal y fermentación interna",
+    "action_required": "Atención veterinaria"
+  },
+  {
+    "name": "Huesos cocidos",
+    "danger_level": "Alto",
+    "symptoms": "Obstrucción intestinal o perforación",
+    "action_required": "Consulta veterinaria inmediata"
+  },
+  {
+    "name": "Comida muy salada",
+    "danger_level": "Moderado",
+    "symptoms": "Sed excesiva y alteraciones neurológicas",
+    "action_required": "Consultar al veterinario"
+  },
+  {
+    "name": "Caramelos sin azúcar",
+    "danger_level": "Crítico",
+    "symptoms": "Hipoglucemia y daño hepático",
+    "action_required": "Emergencia veterinaria"
+  },
+{
+  "name": "Chicle sin azúcar",
+  "aliases": [
+    "chicle",
+    "goma de mascar",
+    "trident",
+    "orbit"
+  ],
+  "danger_level": "Crítico",
+  "symptoms": "Hipoglucemia y convulsiones",
+  "action_required": "Emergencia veterinaria"
+},
+  {
+    "name": "Detergente",
+    "danger_level": "Crítico",
+    "symptoms": "Quemaduras, vómitos y dificultad respiratoria",
+    "action_required": "Emergencia veterinaria"
+  },
+  {
+    "name": "Lirios",
+    "aliases": ["azucenas", "lilium", "lirio de la paz"],
+    "danger_level": "Crítico",
+    "symptoms": "Vómitos severos, letargo e insuficiencia renal aguda e irreversible en gatos (incluso por lamer el polen).",
+    "action_required": "Emergencia veterinaria inmediata (especialmente en gatos)"
+  },
+  {
+    "name": "Anticongelante",
+    "aliases": ["etilenglicol", "refrigerante"],
+    "danger_level": "Crítico",
+    "symptoms": "Embriaguez, letargo, vómitos seguidos de fallo renal agudo letal. Su sabor dulce los atrae.",
+    "action_required": "Emergencia veterinaria absoluta. El tiempo es vital."
+  },
+  {
+    "name": "Cebolla y ajo en polvo",
+    "aliases": ["condimento", "sazonador"],
+    "danger_level": "Alto",
+    "symptoms": "Destrucción de glóbulos rojos (anemia hemolítica), debilidad extrema, orina oscura.",
+    "action_required": "Urgencia veterinaria. Es más concentrado y tóxico que su versión cruda."
+  },
+  {
+    "name": "Leche de vaca",
+    "aliases": ["leche", "queso curado", "helado"],
+    "danger_level": "Moderado",
+    "symptoms": "Diarrea profusa, gases, dolor abdominal y vómitos por intolerancia a la lactosa.",
+    "action_required": "Suspender ingesta y ofrecer hidratación. Consultar si no cesa la diarrea."
+  },
+  {
+    "name": "Flor de Nochebuena",
+    "aliases": ["poinsettia", "flor de navidad"],
+    "danger_level": "Moderado",
+    "symptoms": "Irritación bucal severa, babeo excesivo, vómitos leves.",
+    "action_required": "Lavar la boca con agua y consultar al veterinario."
+  },
+  {
+    "name": "Aloe Vera",
+    "aliases": ["sábila"],
+    "danger_level": "Alto",
+    "symptoms": "Diarrea severa, vómitos, cambios en el color de la orina y letargo.",
+    "action_required": "Atención veterinaria (la toxicidad está en la corteza y el látex de la planta, no en el gel puro)."
+  }
+]
