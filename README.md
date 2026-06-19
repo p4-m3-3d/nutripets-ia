@@ -104,6 +104,7 @@ frontend/index.html
 
 ## 📂 Estructura del Proyecto
 
+```text
 ├── backend/
 │   ├── app/
 │   │   ├── main.py          # Punto de entrada de la API FastAPI
