@@ -18,5 +18,21 @@
     {
         "id": 5,
         "category_name": "Balanceada"
+    },
+    {
+        "id": 6,
+        "category_name": "Renal"
+    },
+    {
+        "id": 7,
+        "category_name": "Control de Peso"
+    },
+    {
+        "id": 8,
+        "category_name": "Hipoalergénica"
+    },
+    {
+        "id": 9,
+        "category_name": "Snacks y Premios"
     }
 ]

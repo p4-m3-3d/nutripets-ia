@@ -284,5 +284,71 @@
     "species_id": 2,
     "life_stage_id": 3,
     "category_id": 2
-}
+},
+  {
+    "title": "Cordero y batata (Hipoalergénica)",
+    "description": "Receta de eliminación para perros con alergias al pollo o res",
+    "preparation": "Hervir carne de cordero magra y mezclar con puré de batata (camote) cocida sin piel.",
+    "preparation_time": 40,
+    "difficulty": "Media",
+    "calories": 310,
+    "species_id": 1,
+    "life_stage_id": 2,
+    "category_id": 8
+  },
+  {
+    "title": "Pollo y calabacín (Control de peso)",
+    "description": "Receta saciante pero baja en calorías para perros con sobrepeso",
+    "preparation": "Hervir pechuga de pollo y mezclar con abundante calabacín y judías verdes al vapor.",
+    "preparation_time": 25,
+    "difficulty": "Fácil",
+    "calories": 180,
+    "species_id": 1,
+    "life_stage_id": 2,
+    "category_id": 7
+  },
+  {
+    "title": "Pavo y calabaza para soporte Renal",
+    "description": "Receta baja en fósforo y sodio para gatos con falla renal",
+    "preparation": "Cocinar pavo magro al vapor, mezclar con puré de calabaza y añadir unas gotas de aceite de salmón.",
+    "preparation_time": 20,
+    "difficulty": "Media",
+    "calories": 190,
+    "species_id": 2,
+    "life_stage_id": 3,
+    "category_id": 6
+  },
+  {
+    "title": "Galletas de avena y manzana",
+    "description": "Snack saludable y bajo en grasas para perros",
+    "preparation": "Triturar manzana sin semillas, mezclar con avena y agua, hornear pequeñas porciones a 180°C por 15 min.",
+    "preparation_time": 25,
+    "difficulty": "Media",
+    "calories": 50,
+    "species_id": 1,
+    "life_stage_id": 2,
+    "category_id": 9
+  },
+  {
+    "title": "Caldo de hueso sin sal",
+    "description": "Hidratación y recuperación para gatos enfermos o senior",
+    "preparation": "Hervir huesos de pollo sin sal ni cebolla durante 12 horas a fuego muy lento. Colar bien y servir el líquido frío.",
+    "preparation_time": 720,
+    "difficulty": "Fácil",
+    "calories": 40,
+    "species_id": 2,
+    "life_stage_id": 3,
+    "category_id": 2
+  },
+  {
+    "title": "Pescado blanco y arroz muy cocido",
+    "description": "Receta de rescate para perros con gastroenteritis aguda",
+    "preparation": "Hervir pescado blanco sin espinas. Hervir el arroz con el doble de agua hasta que quede pastoso. Mezclar.",
+    "preparation_time": 30,
+    "difficulty": "Fácil",
+    "calories": 210,
+    "species_id": 1,
+    "life_stage_id": 1,
+    "category_id": 1
+  }
 ]

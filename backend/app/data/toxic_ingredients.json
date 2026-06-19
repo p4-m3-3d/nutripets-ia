@@ -220,5 +220,47 @@
     "danger_level": "Crítico",
     "symptoms": "Quemaduras, vómitos y dificultad respiratoria",
     "action_required": "Emergencia veterinaria"
+  },
+  {
+    "name": "Lirios",
+    "aliases": ["azucenas", "lilium", "lirio de la paz"],
+    "danger_level": "Crítico",
+    "symptoms": "Vómitos severos, letargo e insuficiencia renal aguda e irreversible en gatos (incluso por lamer el polen).",
+    "action_required": "Emergencia veterinaria inmediata (especialmente en gatos)"
+  },
+  {
+    "name": "Anticongelante",
+    "aliases": ["etilenglicol", "refrigerante"],
+    "danger_level": "Crítico",
+    "symptoms": "Embriaguez, letargo, vómitos seguidos de fallo renal agudo letal. Su sabor dulce los atrae.",
+    "action_required": "Emergencia veterinaria absoluta. El tiempo es vital."
+  },
+  {
+    "name": "Cebolla y ajo en polvo",
+    "aliases": ["condimento", "sazonador"],
+    "danger_level": "Alto",
+    "symptoms": "Destrucción de glóbulos rojos (anemia hemolítica), debilidad extrema, orina oscura.",
+    "action_required": "Urgencia veterinaria. Es más concentrado y tóxico que su versión cruda."
+  },
+  {
+    "name": "Leche de vaca",
+    "aliases": ["leche", "queso curado", "helado"],
+    "danger_level": "Moderado",
+    "symptoms": "Diarrea profusa, gases, dolor abdominal y vómitos por intolerancia a la lactosa.",
+    "action_required": "Suspender ingesta y ofrecer hidratación. Consultar si no cesa la diarrea."
+  },
+  {
+    "name": "Flor de Nochebuena",
+    "aliases": ["poinsettia", "flor de navidad"],
+    "danger_level": "Moderado",
+    "symptoms": "Irritación bucal severa, babeo excesivo, vómitos leves.",
+    "action_required": "Lavar la boca con agua y consultar al veterinario."
+  },
+  {
+    "name": "Aloe Vera",
+    "aliases": ["sábila"],
+    "danger_level": "Alto",
+    "symptoms": "Diarrea severa, vómitos, cambios en el color de la orina y letargo.",
+    "action_required": "Atención veterinaria (la toxicidad está en la corteza y el látex de la planta, no en el gel puro)."
   }
 ]

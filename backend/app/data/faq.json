@@ -118,5 +118,37 @@
   {
     "question": "¿Qué hacer si mi mascota comió chocolate?",
     "answer": "Debe buscarse atención veterinaria inmediata, ya que el chocolate puede ser tóxico."
+  },
+  {
+    "question": "¿Qué es la dieta BARF?",
+    "answer": "Es una dieta basada en alimentos crudos biológicamente apropiados (huesos carnosos, carne magra, vísceras y vegetales). Requiere formulación experta para no causar desbalances."
+  },
+  {
+    "question": "¿Los gatos pueden tomar leche de vaca?",
+    "answer": "No es recomendable. La mayoría de los gatos adultos son intolerantes a la lactosa y les causará diarrea y malestar estomacal."
+  },
+  {
+    "question": "¿Cómo sé si mi perro tiene alergia alimentaria?",
+    "answer": "Los síntomas más comunes son lamido excesivo de patas, infecciones de oído recurrentes, piel enrojecida y, en ocasiones, problemas digestivos."
+  },
+  {
+    "question": "¿Qué puedo darle a mi perro si está estreñido?",
+    "answer": "Una pequeña cantidad de puré de calabaza (sin azúcar) es una excelente fuente de fibra que ayuda a regular el tránsito intestinal."
+  },
+  {
+    "question": "¿Es seguro darles huesos a los perros?",
+    "answer": "Solo huesos crudos y carnosos bajo supervisión. NUNCA se deben dar huesos cocidos, ya que se astillan fácilmente y pueden perforar el intestino."
+  },
+  {
+    "question": "¿Puedo hacer a mi gato vegetariano?",
+    "answer": "No. Los gatos son carnívoros estrictos y necesitan nutrientes esenciales que solo se encuentran en la carne, como la taurina; sin ella, pueden sufrir ceguera y problemas cardíacos."
+  },
+  {
+    "question": "¿Qué come un perro con problemas renales?",
+    "answer": "Requiere una dieta con proteínas de muy alta digestibilidad pero en menor cantidad, baja en fósforo y rica en ácidos grasos Omega-3."
+  },
+  {
+    "question": "¿Los perros pueden comer manzana?",
+    "answer": "Sí, la manzana sin semillas ni corazón es un excelente snack, bajo en calorías y rico en vitaminas."
   }
 ]

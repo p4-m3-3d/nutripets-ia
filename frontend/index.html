@@ -3,70 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriPets IA - Consultoría Nutricional</title>
+    <title>NutriPets IA - Panel Clínico</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .chat-container { height: calc(100vh - 140px); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #0b1329;
+            /* Fondo radial sutil para romper la monotonía del color sólido */
+            background-image: radial-gradient(circle at 50% 0%, #112240 0%, transparent 70%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .chat-container { height: calc(100vh - 160px); scroll-behavior: smooth; }
+        
+        /* Animación suave de entrada para los mensajes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .msg-enter { animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        /* Estilos Markdown generados por marked.js */
+        .prose-custom ul { list-style-type: disc; margin-left: 1.2rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+        .prose-custom ol { list-style-type: decimal; margin-left: 1.2rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+        .prose-custom strong { color: #34d399; font-weight: 600; }
+        .prose-custom p { margin-bottom: 0.75rem; }
+        .prose-custom p:last-child { margin-bottom: 0; }
     </style>
 </head>
-<body class="flex flex-col h-screen text-slate-800">
+<body class="flex flex-col h-screen text-slate-200 antialiased overflow-hidden">
 
-    <header class="bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between shadow-xs">
-        <div class="flex items-center gap-3">
-            <div class="bg-emerald-500 text-white p-2.5 rounded-xl shadow-md">
+    <header class="bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800/80 px-6 py-4 flex items-center justify-between shadow-lg relative z-10">
+        <div class="flex items-center gap-4">
+            <div class="bg-gradient-to-tr from-emerald-500 to-teal-600 text-white p-2.5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.3)]">
                 <i data-lucide="paw-print" class="w-6 h-6"></i>
             </div>
             <div>
-                <h1 class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                    NutriPets <span class="text-emerald-500 font-medium text-sm bg-emerald-50 px-2 py-0.5 rounded-md">IA Pro v1.1</span>
+                <h1 class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                    NutriPets <span class="text-emerald-400 font-medium text-xs bg-emerald-950/60 border border-emerald-800 px-2 py-0.5 rounded-md">AI PRO v2.0</span>
                 </h1>
-                <p class="text-xs text-slate-500">Consultoría con memoria histórica y formateo avanzado</p>
+                <p class="text-xs text-slate-400">Asistente Clínico de Nutrición Animal</p>
             </div>
         </div>
-        <div class="flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Motor RAG Inteligente
+        
+        <div class="flex items-center gap-4">
+            <button onclick="clearChat()" class="flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700 px-3 py-2 rounded-lg transition-all cursor-pointer">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Nueva Consulta
+            </button>
+            <div class="flex items-center gap-2 text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 px-3 py-1.5 rounded-full shadow-inner hidden md:flex">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Motor RAG Activo
+            </div>
         </div>
     </header>
 
-    <main class="flex flex-1 overflow-hidden">
-        <section class="flex-1 flex flex-col bg-slate-50 p-6">
-            <div id="chat-box" class="chat-container flex-1 overflow-y-auto space-y-4 pr-2">
-                <div class="flex gap-3 max-w-3xl">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-xs">
-                        <i data-lucide="bot" class="w-4 h-4"></i>
+    <main class="flex flex-1 overflow-hidden relative z-0">
+        
+        <section class="flex-1 flex flex-col p-6 justify-between relative">
+            <div id="chat-box" class="chat-container flex-1 overflow-y-auto space-y-6 pr-4">
+                
+                <div class="flex gap-4 max-w-3xl msg-enter">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
                     </div>
-                    <div class="bg-white border border-slate-100 rounded-2xl rounded-tl-none p-4 shadow-xs">
-                        <p class="text-sm leading-relaxed text-slate-700">
-                            ¡Hola! Soy <strong>NutriPets IA</strong>. Cuéntame sobre tu mascota (perro, gato, cachorro, senior) y tu duda nutricional. ¡Recordaré los detalles que me des en el chat!
+                    <div class="bg-[#1e293b]/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl rounded-tl-none p-4 shadow-lg">
+                        <p class="text-sm leading-relaxed text-slate-300">
+                            ¡Bienvenido al panel clínico de <strong>NutriPets IA</strong>! Cuéntame los detalles de tu mascota. Recordaré automáticamente la especie y edad a lo largo de nuestra sesión.
                         </p>
                     </div>
                 </div>
+
             </div>
 
-            <div class="mt-4 bg-white border border-slate-200 rounded-xl p-2 flex items-center gap-2 shadow-xs focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 transition-all">
-                <input id="user-input" type="text" placeholder="Escribe tu consulta aquí..." class="flex-1 bg-transparent px-3 py-2 text-sm text-slate-800 placeholder-slate-400 focus:outline-none">
-                <button id="send-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white p-2.5 rounded-lg transition-all cursor-pointer shadow-sm">
+            <div id="typing-indicator" class="hidden flex gap-4 max-w-3xl mb-2 mt-4 transition-opacity duration-300">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                </div>
+                <div class="bg-[#1e293b]/80 backdrop-blur-sm border border-slate-700/50 rounded-2xl rounded-tl-none px-4 py-3 shadow-lg flex items-center gap-1.5 h-[44px]">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-[#0f172a]/90 backdrop-blur-xl border border-slate-700 rounded-2xl p-2 flex items-center gap-3 shadow-2xl focus-within:border-emerald-500/60 transition-all duration-300">
+                <div class="text-slate-500 pl-3"><i data-lucide="sparkles" class="w-5 h-5 text-emerald-600"></i></div>
+                <input id="user-input" type="text" placeholder="Ej: Mi Akita comió algo extraño o ¿Qué come un gato senior?" 
+                       class="flex-1 bg-transparent py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none">
+                <button id="send-btn" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 active:scale-95 text-white p-3 rounded-xl transition-all cursor-pointer shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                     <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
             </div>
         </section>
 
-        <aside class="w-80 border-l border-slate-100 bg-white p-6 flex flex-col overflow-y-auto hidden md:flex">
-            <div class="flex items-center gap-2 text-slate-900 font-bold text-sm tracking-wide uppercase border-b border-slate-100 pb-3 mb-4">
-                <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i> Sugerencias de Soporte
+        <aside class="w-85 border-l border-slate-800/80 bg-[#0f172a]/40 backdrop-blur-md p-6 flex flex-col overflow-y-auto hidden lg:flex relative z-10">
+            <div class="flex items-center gap-2 text-slate-400 font-bold text-xs tracking-wider uppercase border-b border-slate-800/80 pb-4 mb-4">
+                <i data-lucide="activity" class="w-4 h-4 text-emerald-500"></i>
+                Catálogo RAG Clínico
             </div>
+            
             <div id="recipes-container" class="space-y-3 flex-1">
-                <div class="text-center py-8 text-slate-400 text-xs">
-                    <i data-lucide="sparkles" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i> Las sugerencias se filtrarán automáticamente.
+                <div class="text-center py-12 text-slate-500 text-xs flex flex-col items-center">
+                    <div class="bg-[#1e293b] w-12 h-12 rounded-full flex items-center justify-center mb-3 border border-slate-800 shadow-inner">
+                        <i data-lucide="database" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    Las sugerencias nutricionales se filtrarán dinámicamente aquí.
                 </div>
             </div>
-            <div id="sources-badge" class="text-[11px] text-slate-400 text-right mt-4 hidden">
-                Fuentes analizadas en este ciclo: <span id="sources-count" class="font-bold text-slate-600">0</span>
+            
+            <div id="sources-badge" class="text-[11px] text-slate-400 text-center mt-4 hidden bg-[#1e293b]/60 border border-slate-800/80 px-3 py-2 rounded-xl shadow-inner">
+                Fuentes vectoriales consultadas: <span id="sources-count" class="font-bold text-emerald-400 ml-1">0</span>
             </div>
         </aside>
+
     </main>
 
     <script>
@@ -76,12 +130,41 @@
         const recipesContainer = document.getElementById('recipes-container');
         const sourcesBadge = document.getElementById('sources-badge');
         const sourcesCount = document.getElementById('sources-count');
+        const typingIndicator = document.getElementById('typing-indicator');
 
-        // MEMORIA DEL HISTORIAL DE CONVERSACIÓN (Mantenida en el Front)
+        // Configurar marked.js para seguridad básica
+        marked.setOptions({ breaks: true, gfm: true });
+
         let conversationHistory = [];
-
         lucide.createIcons();
-        function scrollToBottom() { chatBox.scrollTop = chatBox.scrollHeight; }
+
+        function scrollToBottom() { 
+            chatBox.scrollTop = chatBox.scrollHeight; 
+        }
+
+        function clearChat() {
+            conversationHistory = [];
+            
+            // Mantener solo el primer mensaje de bienvenida
+            const welcomeMessage = chatBox.firstElementChild;
+            chatBox.innerHTML = '';
+            chatBox.appendChild(welcomeMessage);
+            
+            // Limpiar Sidebar
+            recipesContainer.innerHTML = `
+                <div class="text-center py-12 text-slate-500 text-xs flex flex-col items-center msg-enter">
+                    <div class="bg-[#1e293b] w-12 h-12 rounded-full flex items-center justify-center mb-3 border border-slate-800 shadow-inner">
+                        <i data-lucide="rotate-ccw" class="w-5 h-5 text-slate-400"></i>
+                    </div>
+                    Contexto de memoria borrado. Listo para nueva consulta.
+                </div>`;
+            sourcesBadge.classList.add('hidden');
+            lucide.createIcons();
+            
+            // Pequeña notificación visual
+            userInput.placeholder = "Memoria limpia. Escribe tu nueva consulta...";
+            setTimeout(() => userInput.placeholder = "Ej: Mi Akita comió algo extraño o ¿Qué come un gato senior?", 3000);
+        }
 
         window.toggleDebugData = function(id) {
             const el = document.getElementById(id);
@@ -92,40 +175,61 @@
 
         function appendMessage(text, isUser = false, isAlert = false, msgId = null, extraData = null) {
             const msgWrapper = document.createElement('div');
-            msgWrapper.className = `flex gap-3 max-w-3xl ${isUser ? 'ml-auto flex-row-reverse' : ''}`;
+            // Clase msg-enter lanza la animación de aparición
+            msgWrapper.className = `flex gap-4 max-w-3xl msg-enter ${isUser ? 'ml-auto flex-row-reverse' : ''}`;
 
             const avatar = document.createElement('div');
-            avatar.className = `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${isUser ? 'bg-slate-700 text-white' : (isAlert ? 'bg-rose-500 text-white' : 'bg-emerald-500 text-white')}`;
-            avatar.innerHTML = `<i data-lucide="${isUser ? 'user' : (isAlert ? 'shield-alert' : 'bot')}"></i>`;
+            avatar.className = `w-9 h-9 rounded-xl flex items-center justify-center shrink-0 shadow-md ${
+                isUser 
+                ? 'bg-[#1e293b] text-slate-300 border border-slate-700' 
+                : (isAlert ? 'bg-gradient-to-br from-rose-500 to-red-600 text-white animate-pulse shadow-[0_0_15px_rgba(225,29,72,0.4)]' : 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-[0_0_10px_rgba(16,185,129,0.2)]')
+            }`;
+            avatar.innerHTML = `<i data-lucide="${isUser ? 'user' : (isAlert ? 'shield-alert' : 'bot')}" class="w-5 h-5"></i>`;
 
             const bodyContent = document.createElement('div');
-            bodyContent.className = `rounded-2xl p-4 text-sm leading-relaxed shadow-xs border w-full ${isUser ? 'bg-slate-800 text-white border-slate-800 rounded-tr-none' : (isAlert ? 'bg-rose-50 border-rose-200 text-rose-900 rounded-tl-none' : 'bg-white border-slate-100 text-slate-700 rounded-tl-none')}`;
+            bodyContent.className = `rounded-2xl p-4 text-sm leading-relaxed border w-full prose-custom ${
+                isUser 
+                ? 'bg-gradient-to-br from-[#1e293b] to-[#0f172a] text-slate-200 border-slate-700/80 rounded-tr-none' 
+                : (isAlert ? 'bg-rose-950/20 border-rose-900/50 text-rose-200 rounded-tl-none backdrop-blur-sm' : 'bg-[#1e293b]/80 backdrop-blur-sm border-slate-700/50 text-slate-300 rounded-tl-none shadow-lg')
+            }`;
             
-            // CORRECCIÓN CLAVE: Cambiado de textContent a innerHTML para renderizar el formato avanzado de la IA
-            bodyContent.innerHTML = text;
+            // Si es IA, procesamos el texto con Markdown, sino lo mostramos como texto plano
+            bodyContent.innerHTML = isUser ? `<div>${text}</div>` : marked.parse(text);
 
             if (!isUser && extraData) {
                 const debugId = 'debug_' + msgId;
                 bodyContent.innerHTML += `
-                    <div class="mt-3 border-t border-slate-100 pt-2">
-                        <button onclick="toggleDebugData('${debugId}')" class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 cursor-pointer">
-                            <i data-lucide="chevron-down" id="icon_${debugId}" class="w-3.5 h-3.5 transition-transform"></i> Ver detalles de análisis de IA
+                    <div class="mt-4 border-t border-slate-700/50 pt-3">
+                        <button onclick="toggleDebugData('${debugId}')" class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-400 transition-colors cursor-pointer focus:outline-none">
+                            <i data-lucide="chevron-down" id="icon_${debugId}" class="w-3.5 h-3.5 transition-transform duration-300"></i>
+                            Inspector de Metadatos IA
                         </button>
-                        <div id="${debugId}" class="hidden mt-2 bg-slate-50 border border-slate-200/60 rounded-xl p-3 space-y-2 text-[11px] text-slate-600">
-                            <div class="flex justify-between border-b border-slate-200/40 pb-1"><span>Especie detectada:</span><span class="font-bold text-slate-800 bg-slate-200/60 px-1.5 py-0.5 rounded">${extraData.species}</span></div>
-                            <div class="flex justify-between border-b border-slate-200/40 pb-1"><span>Etapa de vida:</span><span class="font-bold text-slate-800 bg-slate-200/60 px-1.5 py-0.5 rounded">${extraData.lifeStage}</span></div>
-                            <div class="flex justify-between"><span>Documentos de respaldo RAG:</span><span class="font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">${extraData.sourcesCount} fuentes</span></div>
+                        <div id="${debugId}" class="hidden mt-3 bg-[#0b1329]/80 border border-slate-800 rounded-xl p-3 space-y-2 text-[11px] text-slate-400 shadow-inner">
+                            <div class="flex justify-between border-b border-slate-800/80 pb-1.5">
+                                <span>Entidad Clasificada:</span>
+                                <span class="font-bold text-emerald-400 bg-emerald-950/30 border border-emerald-900/50 px-2 py-0.5 rounded-md">${extraData.species}</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800/80 pb-1.5">
+                                <span>Etapa Vital:</span>
+                                <span class="font-bold text-sky-400 bg-sky-950/30 border border-sky-900/50 px-2 py-0.5 rounded-md">${extraData.lifeStage}</span>
+                            </div>
+                            <div class="flex justify-between pt-0.5">
+                                <span>Nodos RAG:</span>
+                                <span class="font-bold text-amber-400 bg-amber-950/30 border border-amber-900/50 px-2 py-0.5 rounded-md">${extraData.sourcesCount} fuentes recuperadas</span>
+                            </div>
                         </div>
                     </div>`;
             }
 
             if (!isUser && msgId) {
                 const feedbackActions = document.createElement('div');
-                feedbackActions.className = "flex items-center gap-3 mt-3 pt-2 border-t border-slate-100 text-xs text-slate-400";
+                feedbackActions.className = "flex items-center justify-between mt-3 pt-3 border-t border-slate-700/50 text-xs text-slate-500";
                 feedbackActions.innerHTML = `
-                    <span>¿Te fue útil?</span>
-                    <button onclick="sendFeedback('${msgId}', true, this)" class="flex items-center gap-1 hover:text-emerald-500 cursor-pointer transition-colors p-1 rounded hover:bg-slate-50"><i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> Sí</button>
-                    <button onclick="sendFeedback('${msgId}', false, this)" class="flex items-center gap-1 hover:text-rose-500 cursor-pointer transition-colors p-1 rounded hover:bg-slate-50"><i data-lucide="thumbs-down" class="w-3.5 h-3.5"></i> No</button>`;
+                    <div class="flex items-center gap-3">
+                        <span>¿Respuesta acertada?</span>
+                        <button onclick="sendFeedback('${msgId}', true, this)" class="flex items-center gap-1 hover:text-emerald-400 cursor-pointer transition-colors px-2 py-1 rounded-md hover:bg-slate-800/80"><i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i></button>
+                        <button onclick="sendFeedback('${msgId}', false, this)" class="flex items-center gap-1 hover:text-rose-400 cursor-pointer transition-colors px-2 py-1 rounded-md hover:bg-slate-800/80"><i data-lucide="thumbs-down" class="w-3.5 h-3.5"></i></button>
+                    </div>`;
                 bodyContent.appendChild(feedbackActions);
             }
 
@@ -139,9 +243,10 @@
 
         window.sendFeedback = function(msgId, isLike, buttonElement) {
             const container = buttonElement.closest('.rounded-2xl');
-            const bubble = buttonElement.closest('div');
+            const bubble = buttonElement.closest('div').parentElement;
             const questionText = container.dataset.question || "Consulta de NutriPets";
-            const answerText = container.querySelector('p')?.innerText || container.innerText;
+            // Obtenemos el texto limpio sin etiquetas HTML
+            const answerText = container.innerText;
 
             fetch('http://localhost:8000/feedback/rate', {
                 method: 'POST',
@@ -150,7 +255,7 @@
             })
             .then(res => res.json())
             .then(() => {
-                bubble.innerHTML = `<span class="text-emerald-600 font-medium flex items-center gap-1 mt-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> ¡Gracias por tu feedback!</span>`;
+                bubble.innerHTML = `<span class="text-emerald-400 font-medium flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Feedback registrado con éxito</span>`;
                 lucide.createIcons();
             }).catch(err => console.error(err));
         }
@@ -161,24 +266,29 @@
 
             appendMessage(query, true);
             userInput.value = '';
+            userInput.disabled = true; // Desactivar input temporalmente
+            
+            // Mostrar indicador de escritura y scrollear
+            typingIndicator.classList.remove('hidden');
+            scrollToBottom();
 
-            // Guardamos la pregunta del usuario en la memoria local antes del fetch
             conversationHistory.push({ role: "user", content: query });
 
             fetch('http://localhost:8000/ai/ask', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    question: query,
-                    history: conversationHistory 
-                })
+                body: JSON.stringify({ question: query, history: conversationHistory })
             })
             .then(res => res.json())
             .then(data => {
+                // Ocultar indicador de escritura
+                typingIndicator.classList.add('hidden');
+                userInput.disabled = false;
+                userInput.focus();
+
                 const uniqueId = 'msg_' + Date.now();
                 const isAlert = data.alert || false;
 
-                // Almacenamos la respuesta de la IA en la memoria local para mantener el hilo contextual
                 conversationHistory.push({ role: "assistant", content: data.answer });
 
                 const extraInfo = {
@@ -193,23 +303,27 @@
                 const lastBubble = elements[elements.length - 1];
                 if(lastBubble) lastBubble.dataset.question = query;
 
+                // Actualizar Sidebar
                 recipesContainer.innerHTML = '';
                 if (isAlert || !data.recommendations || data.recommendations.length === 0) {
                     recipesContainer.innerHTML = `
-                        <div class="bg-rose-50 border border-rose-100 rounded-xl p-4 text-center text-xs text-rose-700">
-                            <i data-lucide="shield-alert" class="w-6 h-6 mx-auto mb-1 text-rose-500"></i> Modo de seguridad activo o sin coincidencias de catálogo.
+                        <div class="bg-rose-950/20 border border-rose-900/40 rounded-xl p-4 text-center text-xs text-rose-300 msg-enter">
+                            <i data-lucide="shield-alert" class="w-7 h-7 mx-auto mb-2 text-rose-500/80"></i>
+                            Escudo clínico activo o sin coincidencias de recetario.
                         </div>`;
                     sourcesBadge.classList.add('hidden');
                 } else {
-                    data.recommendations.forEach(item => {
+                    data.recommendations.forEach((item, index) => {
                         const card = document.createElement('div');
-                        card.className = "bg-slate-50 border border-slate-100 hover:border-emerald-200 p-3 rounded-xl transition-all shadow-2xs";
+                        // Escalado del delay para que aparezcan en cascada
+                        card.className = "bg-[#1e293b]/70 backdrop-blur-sm border border-slate-700/60 hover:border-emerald-500/50 p-3.5 rounded-xl transition-all shadow-lg msg-enter";
+                        card.style.animationDelay = `${index * 0.1}s`;
                         card.innerHTML = `
-                            <h4 class="font-semibold text-xs text-slate-800 mb-1.5">${item.title}</h4>
+                            <h4 class="font-semibold text-xs text-slate-200 mb-2">${item.title}</h4>
                             <div class="flex flex-wrap gap-1.5 text-[10px] font-medium">
-                                <span class="bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">${item.species}</span>
-                                <span class="bg-purple-50 text-purple-600 px-1.5 py-0.5 rounded">${item.life_stage}</span>
-                                <span class="bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded">${item.category}</span>
+                                <span class="bg-indigo-950/50 text-indigo-300 border border-indigo-800/50 px-2 py-0.5 rounded-md">${item.species}</span>
+                                <span class="bg-purple-950/50 text-purple-300 border border-purple-800/50 px-2 py-0.5 rounded-md">${item.life_stage}</span>
+                                <span class="bg-emerald-950/50 text-emerald-300 border border-emerald-800/50 px-2 py-0.5 rounded-md">${item.category}</span>
                             </div>`;
                         recipesContainer.appendChild(card);
                     });
@@ -220,12 +334,14 @@
             })
             .catch(err => {
                 console.error(err);
-                appendMessage("Hubo un problema de conexión con el servidor.", false, true);
+                typingIndicator.classList.add('hidden');
+                userInput.disabled = false;
+                appendMessage("**Error de conexión:** No se pudo contactar con el servidor API local.", false, true);
             });
         }
 
         sendBtn.addEventListener('click', handleSend);
-        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter' && !userInput.disabled) handleSend(); });
     </script>
 </body>
 </html>

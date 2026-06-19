@@ -98,5 +98,29 @@
   {
     "title": "Consultar ante síntomas persistentes",
     "content": "Si los síntomas digestivos duran más de 24 horas se recomienda acudir al veterinario."
+  },
+  {
+    "title": "Dietas de eliminación para alergias",
+    "content": "Si se sospecha de alergia alimentaria, se debe usar una fuente de proteína nueva (como cordero o conejo) durante 8 a 12 semanas sin añadir ningún otro premio o alimento."
+  },
+  {
+    "title": "Alimentación para insuficiencia renal",
+    "content": "Las dietas para problemas renales deben tener niveles controlados de proteínas de alta calidad, y restricción de fósforo y sodio para proteger los riñones."
+  },
+  {
+    "title": "Fomento de hidratación en gatos",
+    "content": "Para gatos que beben poca agua, es altamente recomendable incorporar comida húmeda diaria o caldos sin sal para proteger su tracto urinario."
+  },
+  {
+    "title": "Control de obesidad",
+    "content": "Para bajar de peso, no solo reduzca la porción; utilice dietas ricas en fibra que mantengan la saciedad del animal sin aportar exceso de calorías."
+  },
+  {
+    "title": "Precaución con la dieta cruda (BARF)",
+    "content": "Las dietas crudas requieren un balance estricto de calcio, fósforo y vitaminas, además de extremo cuidado higiénico para evitar contaminación por Salmonella o E. coli."
+  },
+  {
+    "title": "Transición a dietas senior",
+    "content": "A partir de los 7 años en perros grandes y 9 en gatos, se recomienda incorporar suplementos como condroprotectores (glucosamina) y omega 3 en su dieta."
   }
 ]
