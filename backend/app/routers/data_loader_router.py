@@ -1,5 +1,6 @@
-from fastapi import APIRouter
-
+from fastapi import APIRouter, Depends, status
+from sqlalchemy.orm import Session
+from app.core.database import get_db
 from app.services.data_loader import DataLoader
 
 router = APIRouter(
@@ -8,26 +9,26 @@ router = APIRouter(
 )
 
 
-@router.post("/recipes")
-def load_recipes():
-    return DataLoader.load_recipes()
+@router.post("/recipes", status_code=status.HTTP_200_OK)
+def load_recipes(db: Session = Depends(get_db)):
+    return DataLoader.load_recipes(db=db)
 
 
-@router.post("/advice")
-def load_advice():
-    return DataLoader.load_advice()
+@router.post("/advice", status_code=status.HTTP_200_OK)
+def load_advice(db: Session = Depends(get_db)):
+    return DataLoader.load_advice(db=db)
 
 
-@router.post("/faq")
-def load_faq():
-    return DataLoader.load_faq()
+@router.post("/faq", status_code=status.HTTP_200_OK)
+def load_faq(db: Session = Depends(get_db)):
+    return DataLoader.load_faq(db=db)
 
 
-@router.post("/toxic")
-def load_toxic():
-    return DataLoader.load_toxic_ingredients()
+@router.post("/toxic", status_code=status.HTTP_200_OK)
+def load_toxic(db: Session = Depends(get_db)):
+    return DataLoader.load_toxic_ingredients(db=db)
 
 
-@router.post("/all")
-def load_all():
-    return DataLoader.load_all()
+@router.post("/all", status_code=status.HTTP_200_OK)
+def load_all(db: Session = Depends(get_db)):
+    return DataLoader.load_all(db=db)

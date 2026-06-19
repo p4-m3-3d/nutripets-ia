@@ -1,286 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NutriPets IA</title>
-  <style>
-    :root {
-      --bg: #f6f7fb;
-      --surface: #ffffff;
-      --border: #dde3f0;
-      --text: #16324f;
-      --muted: #5b6f89;
-      --primary: #1e88e5;
-      --primary-dark: #1565c0;
-      --success: #2e7d32;
-      --danger: #c62828;
-      --radius: 12px;
-      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, #eef6ff 0%, var(--bg) 100%);
-      color: var(--text);
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px 48px;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: white;
-      border: 1px solid var(--border);
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 18px;
-    }
-
-    textarea, input {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-size: 1rem;
-      outline: none;
-      resize: vertical;
-      min-height: 110px;
-      color: var(--text);
-    }
-
-    textarea:focus, input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    button {
-      border: none;
-      background: var(--primary);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-
-    button:hover { background: var(--primary-dark); }
-
-    button.secondary {
-      background: #e3f2fd;
-      color: var(--primary-dark);
-    }
-
-    button.secondary:hover { background: #d0e7fb; }
-
-    .status {
-      margin-top: 12px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      min-height: 1.2em;
-    }
-
-    pre {
-      background: #0f172a;
-      color: #e2e8f0;
-      border-radius: 10px;
-      padding: 14px;
-      overflow: auto;
-      max-height: 520px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      margin: 0;
-    }
-
-    @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriPets IA - Consultoría Nutricional</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .chat-container { height: calc(100vh - 140px); }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <header>
-      <div>
-        <h1>NutriPets IA</h1>
-        <p style="margin: 6px 0 0; color: var(--muted);">Asistente de nutrición para mascotas</p>
-      </div>
-      <div class="pill">API Base: <strong id="apiBaseLabel">http://127.0.0.1:8000</strong></div>
+<body class="flex flex-col h-screen text-slate-800">
+
+    <header class="bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between shadow-xs">
+        <div class="flex items-center gap-3">
+            <div class="bg-emerald-500 text-white p-2.5 rounded-xl shadow-md">
+                <i data-lucide="paw-print" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                    NutriPets <span class="text-emerald-500 font-medium text-sm bg-emerald-50 px-2 py-0.5 rounded-md">IA Pro v1.1</span>
+                </h1>
+                <p class="text-xs text-slate-500">Consultoría con memoria histórica y formateo avanzado</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Motor RAG Inteligente
+        </div>
     </header>
 
-    <div class="grid">
-      <section class="panel">
-        <h2>Pregunta al asistente</h2>
-        <textarea id="questionInput" placeholder="Ejemplo: ¿qué alimento puedo dar a un perro con diarrea?"></textarea>
-        <div class="actions">
-          <button id="askBtn">Consultar IA</button>
-          <button class="secondary" id="searchBtn">Buscar semántico</button>
-        </div>
-        <div class="status" id="statusText"></div>
-      </section>
+    <main class="flex flex-1 overflow-hidden">
+        <section class="flex-1 flex flex-col bg-slate-50 p-6">
+            <div id="chat-box" class="chat-container flex-1 overflow-y-auto space-y-4 pr-2">
+                <div class="flex gap-3 max-w-3xl">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="bg-white border border-slate-100 rounded-2xl rounded-tl-none p-4 shadow-xs">
+                        <p class="text-sm leading-relaxed text-slate-700">
+                            ¡Hola! Soy <strong>NutriPets IA</strong>. Cuéntame sobre tu mascota (perro, gato, cachorro, senior) y tu duda nutricional. ¡Recordaré los detalles que me des en el chat!
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-      <section class="panel">
-        <h2>Herramientas</h2>
-        <div class="actions">
-          <button class="secondary" id="healthBtn">Verificar API</button>
-          <button class="secondary" id="loadBtn">Cargar datos</button>
-          <button class="secondary" id="indexBtn">Indexar vector</button>
-        </div>
-      </section>
-    </div>
+            <div class="mt-4 bg-white border border-slate-200 rounded-xl p-2 flex items-center gap-2 shadow-xs focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-100 transition-all">
+                <input id="user-input" type="text" placeholder="Escribe tu consulta aquí..." class="flex-1 bg-transparent px-3 py-2 text-sm text-slate-800 placeholder-slate-400 focus:outline-none">
+                <button id="send-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white p-2.5 rounded-lg transition-all cursor-pointer shadow-sm">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </section>
 
-    <section class="panel" style="margin-top: 18px;">
-      <h2>Respuesta</h2>
-      <pre id="output">Esperando una consulta...</pre>
-    </section>
-  </div>
+        <aside class="w-80 border-l border-slate-100 bg-white p-6 flex flex-col overflow-y-auto hidden md:flex">
+            <div class="flex items-center gap-2 text-slate-900 font-bold text-sm tracking-wide uppercase border-b border-slate-100 pb-3 mb-4">
+                <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i> Sugerencias de Soporte
+            </div>
+            <div id="recipes-container" class="space-y-3 flex-1">
+                <div class="text-center py-8 text-slate-400 text-xs">
+                    <i data-lucide="sparkles" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i> Las sugerencias se filtrarán automáticamente.
+                </div>
+            </div>
+            <div id="sources-badge" class="text-[11px] text-slate-400 text-right mt-4 hidden">
+                Fuentes analizadas en este ciclo: <span id="sources-count" class="font-bold text-slate-600">0</span>
+            </div>
+        </aside>
+    </main>
 
-  <script>
-    const API_BASE = 'http://127.0.0.1:8000';
-    const output = document.getElementById('output');
-    const statusText = document.getElementById('statusText');
-    const questionInput = document.getElementById('questionInput');
-    const apiBaseLabel = document.getElementById('apiBaseLabel');
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const recipesContainer = document.getElementById('recipes-container');
+        const sourcesBadge = document.getElementById('sources-badge');
+        const sourcesCount = document.getElementById('sources-count');
 
-    apiBaseLabel.textContent = API_BASE;
+        // MEMORIA DEL HISTORIAL DE CONVERSACIÓN (Mantenida en el Front)
+        let conversationHistory = [];
 
-    function setStatus(message, isError = false) {
-      statusText.textContent = message;
-      statusText.style.color = isError ? '#c62828' : '#5b6f89';
-    }
+        lucide.createIcons();
+        function scrollToBottom() { chatBox.scrollTop = chatBox.scrollHeight; }
 
-    async function requestJson(path, options = {}) {
-      const response = await fetch(`${API_BASE}${path}`, {
-        headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },
-        ...options
-      });
-      const data = await response.json().catch(() => null);
-      if (!response.ok) {
-        throw new Error(data?.detail || `Error ${response.status}`);
-      }
-      return data;
-    }
+        window.toggleDebugData = function(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon_' + id);
+            el.classList.toggle('hidden');
+            if (icon) icon.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
 
-    async function handleAsk() {
-      const question = questionInput.value.trim();
-      if (!question) {
-        setStatus('Escribe una pregunta primero.', true);
-        return;
-      }
+        function appendMessage(text, isUser = false, isAlert = false, msgId = null, extraData = null) {
+            const msgWrapper = document.createElement('div');
+            msgWrapper.className = `flex gap-3 max-w-3xl ${isUser ? 'ml-auto flex-row-reverse' : ''}`;
 
-      setStatus('Consultando al asistente...');
-      try {
-        const data = await requestJson('/ai/ask', {
-          method: 'POST',
-          body: JSON.stringify({ question })
-        });
-        output.textContent = JSON.stringify(data, null, 2);
-        setStatus('Consulta completada correctamente.');
-      } catch (error) {
-        output.textContent = error.message;
-        setStatus('No se pudo completar la consulta.', true);
-      }
-    }
+            const avatar = document.createElement('div');
+            avatar.className = `w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${isUser ? 'bg-slate-700 text-white' : (isAlert ? 'bg-rose-500 text-white' : 'bg-emerald-500 text-white')}`;
+            avatar.innerHTML = `<i data-lucide="${isUser ? 'user' : (isAlert ? 'shield-alert' : 'bot')}"></i>`;
 
-    async function handleSearch() {
-      const query = questionInput.value.trim();
-      if (!query) {
-        setStatus('Escribe una búsqueda primero.', true);
-        return;
-      }
+            const bodyContent = document.createElement('div');
+            bodyContent.className = `rounded-2xl p-4 text-sm leading-relaxed shadow-xs border w-full ${isUser ? 'bg-slate-800 text-white border-slate-800 rounded-tr-none' : (isAlert ? 'bg-rose-50 border-rose-200 text-rose-900 rounded-tl-none' : 'bg-white border-slate-100 text-slate-700 rounded-tl-none')}`;
+            
+            // CORRECCIÓN CLAVE: Cambiado de textContent a innerHTML para renderizar el formato avanzado de la IA
+            bodyContent.innerHTML = text;
 
-      setStatus('Buscando contenido relevante...');
-      try {
-        const data = await requestJson('/ai/search', {
-          method: 'POST',
-          body: JSON.stringify({ query })
-        });
-        output.textContent = JSON.stringify(data, null, 2);
-        setStatus('Búsqueda semántica finalizada.');
-      } catch (error) {
-        output.textContent = error.message;
-        setStatus('No se pudo ejecutar la búsqueda.', true);
-      }
-    }
+            if (!isUser && extraData) {
+                const debugId = 'debug_' + msgId;
+                bodyContent.innerHTML += `
+                    <div class="mt-3 border-t border-slate-100 pt-2">
+                        <button onclick="toggleDebugData('${debugId}')" class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 cursor-pointer">
+                            <i data-lucide="chevron-down" id="icon_${debugId}" class="w-3.5 h-3.5 transition-transform"></i> Ver detalles de análisis de IA
+                        </button>
+                        <div id="${debugId}" class="hidden mt-2 bg-slate-50 border border-slate-200/60 rounded-xl p-3 space-y-2 text-[11px] text-slate-600">
+                            <div class="flex justify-between border-b border-slate-200/40 pb-1"><span>Especie detectada:</span><span class="font-bold text-slate-800 bg-slate-200/60 px-1.5 py-0.5 rounded">${extraData.species}</span></div>
+                            <div class="flex justify-between border-b border-slate-200/40 pb-1"><span>Etapa de vida:</span><span class="font-bold text-slate-800 bg-slate-200/60 px-1.5 py-0.5 rounded">${extraData.lifeStage}</span></div>
+                            <div class="flex justify-between"><span>Documentos de respaldo RAG:</span><span class="font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">${extraData.sourcesCount} fuentes</span></div>
+                        </div>
+                    </div>`;
+            }
 
-    async function handleHealth() {
-      try {
-        const data = await requestJson('/health');
-        output.textContent = JSON.stringify(data, null, 2);
-        setStatus('La API está disponible.');
-      } catch (error) {
-        output.textContent = error.message;
-        setStatus('La API no responde.', true);
-      }
-    }
+            if (!isUser && msgId) {
+                const feedbackActions = document.createElement('div');
+                feedbackActions.className = "flex items-center gap-3 mt-3 pt-2 border-t border-slate-100 text-xs text-slate-400";
+                feedbackActions.innerHTML = `
+                    <span>¿Te fue útil?</span>
+                    <button onclick="sendFeedback('${msgId}', true, this)" class="flex items-center gap-1 hover:text-emerald-500 cursor-pointer transition-colors p-1 rounded hover:bg-slate-50"><i data-lucide="thumbs-up" class="w-3.5 h-3.5"></i> Sí</button>
+                    <button onclick="sendFeedback('${msgId}', false, this)" class="flex items-center gap-1 hover:text-rose-500 cursor-pointer transition-colors p-1 rounded hover:bg-slate-50"><i data-lucide="thumbs-down" class="w-3.5 h-3.5"></i> No</button>`;
+                bodyContent.appendChild(feedbackActions);
+            }
 
-    async function handleLoad() {
-      setStatus('Cargando datos iniciales...');
-      try {
-        const data = await requestJson('/loader/all', { method: 'POST' });
-        output.textContent = JSON.stringify(data, null, 2);
-        setStatus('Datos cargados correctamente.');
-      } catch (error) {
-        output.textContent = error.message;
-        setStatus('No se pudieron cargar los datos.', true);
-      }
-    }
+            msgWrapper.appendChild(avatar);
+            msgWrapper.appendChild(bodyContent);
+            chatBox.appendChild(msgWrapper);
+            
+            lucide.createIcons();
+            scrollToBottom();
+        }
 
-    async function handleIndex() {
-      setStatus('Creando índice vectorial...');
-      try {
-        const data = await requestJson('/ai/index', { method: 'POST' });
-        output.textContent = JSON.stringify(data, null, 2);
-        setStatus('Índice vectorial creado.');
-      } catch (error) {
-        output.textContent = error.message;
-        setStatus('No se pudo crear el índice.', true);
-      }
-    }
+        window.sendFeedback = function(msgId, isLike, buttonElement) {
+            const container = buttonElement.closest('.rounded-2xl');
+            const bubble = buttonElement.closest('div');
+            const questionText = container.dataset.question || "Consulta de NutriPets";
+            const answerText = container.querySelector('p')?.innerText || container.innerText;
 
-    document.getElementById('askBtn').addEventListener('click', handleAsk);
-    document.getElementById('searchBtn').addEventListener('click', handleSearch);
-    document.getElementById('healthBtn').addEventListener('click', handleHealth);
-    document.getElementById('loadBtn').addEventListener('click', handleLoad);
-    document.getElementById('indexBtn').addEventListener('click', handleIndex);
-  </script>
+            fetch('http://localhost:8000/feedback/rate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: questionText, answer: answerText, is_like: isLike })
+            })
+            .then(res => res.json())
+            .then(() => {
+                bubble.innerHTML = `<span class="text-emerald-600 font-medium flex items-center gap-1 mt-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> ¡Gracias por tu feedback!</span>`;
+                lucide.createIcons();
+            }).catch(err => console.error(err));
+        }
+
+        function handleSend() {
+            const query = userInput.value.trim();
+            if (!query) return;
+
+            appendMessage(query, true);
+            userInput.value = '';
+
+            // Guardamos la pregunta del usuario en la memoria local antes del fetch
+            conversationHistory.push({ role: "user", content: query });
+
+            fetch('http://localhost:8000/ai/ask', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    question: query,
+                    history: conversationHistory 
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const uniqueId = 'msg_' + Date.now();
+                const isAlert = data.alert || false;
+
+                // Almacenamos la respuesta de la IA en la memoria local para mantener el hilo contextual
+                conversationHistory.push({ role: "assistant", content: data.answer });
+
+                const extraInfo = {
+                    species: data.detected_species || "No detectado",
+                    lifeStage: data.detected_life_stage || "Cualquiera",
+                    sourcesCount: data.sources_found || 0
+                };
+
+                appendMessage(data.answer, false, isAlert, uniqueId, extraInfo);
+
+                const elements = chatBox.querySelectorAll('.rounded-2xl');
+                const lastBubble = elements[elements.length - 1];
+                if(lastBubble) lastBubble.dataset.question = query;
+
+                recipesContainer.innerHTML = '';
+                if (isAlert || !data.recommendations || data.recommendations.length === 0) {
+                    recipesContainer.innerHTML = `
+                        <div class="bg-rose-50 border border-rose-100 rounded-xl p-4 text-center text-xs text-rose-700">
+                            <i data-lucide="shield-alert" class="w-6 h-6 mx-auto mb-1 text-rose-500"></i> Modo de seguridad activo o sin coincidencias de catálogo.
+                        </div>`;
+                    sourcesBadge.classList.add('hidden');
+                } else {
+                    data.recommendations.forEach(item => {
+                        const card = document.createElement('div');
+                        card.className = "bg-slate-50 border border-slate-100 hover:border-emerald-200 p-3 rounded-xl transition-all shadow-2xs";
+                        card.innerHTML = `
+                            <h4 class="font-semibold text-xs text-slate-800 mb-1.5">${item.title}</h4>
+                            <div class="flex flex-wrap gap-1.5 text-[10px] font-medium">
+                                <span class="bg-blue-50 text-blue-600 px-1.5 py-0.5 rounded">${item.species}</span>
+                                <span class="bg-purple-50 text-purple-600 px-1.5 py-0.5 rounded">${item.life_stage}</span>
+                                <span class="bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded">${item.category}</span>
+                            </div>`;
+                        recipesContainer.appendChild(card);
+                    });
+                    sourcesCount.innerText = data.sources_found || 0;
+                    sourcesBadge.classList.remove('hidden');
+                }
+                lucide.createIcons();
+            })
+            .catch(err => {
+                console.error(err);
+                appendMessage("Hubo un problema de conexión con el servidor.", false, true);
+            });
+        }
+
+        sendBtn.addEventListener('click', handleSend);
+        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+    </script>
 </body>
 </html>

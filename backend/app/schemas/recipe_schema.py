@@ -1,23 +1,19 @@
 from pydantic import BaseModel
-from typing import Literal
-
+from typing import Optional, Literal
 
 class RecipeSchema(BaseModel):
-
-    id: int | None = None
-
+    id: Optional[int] = None
     title: str
-
-    description: str | None = None
-
+    description: Optional[str] = None
     preparation: str
+    preparation_time: Optional[int] = None
+    difficulty: Literal["Fácil", "Media", "Difícil"]
+    calories: Optional[int] = None
+    
+    # Campos relacionales opcionales para evitar errores de validación
+    species_id: Optional[int] = 1
+    life_stage_id: Optional[int] = 1
+    category_id: Optional[int] = 1
 
-    preparation_time: int | None = None
-
-    difficulty: Literal[
-        "Fácil",
-        "Media",
-        "Difícil"
-    ]
-
-    calories: int | None = None
+    class Config:
+        from_attributes = True
